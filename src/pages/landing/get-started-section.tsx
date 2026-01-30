@@ -33,61 +33,6 @@ const guides: GuideCard[] = [
   }
 ]
 
-const PrimaryCard = ({ guide }: { guide: GuideCard }) => (
-  <div className="group relative h-full cursor-pointer overflow-hidden rounded-2xl bg-gradient-to-br from-purple-600 via-purple-700 to-purple-800 p-8 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-purple-500/25">
-    {/* Background glow effect */}
-    <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-    
-    {/* Image placeholder area */}
-    <div className="absolute top-6 right-6 h-16 w-16 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center">
-      {guide.icon}
-    </div>
-    
-    <div className="relative z-10">
-      <h3 className="text-2xl font-bold text-white mb-4 pr-20 leading-tight">
-        {guide.title}
-      </h3>
-      
-      <p className="text-purple-100 leading-relaxed mb-6 text-base">
-        {guide.description}
-      </p>
-      
-      <div className="flex items-center text-white font-medium group-hover:translate-x-1 transition-transform duration-200">
-        <span>Read guide</span>
-        <ArrowRight className="ml-2 h-4 w-4" />
-      </div>
-    </div>
-  </div>
-)
-
-const SecondaryCard = ({ guide }: { guide: GuideCard }) => (
-  <div className="group relative cursor-pointer overflow-hidden rounded-xl bg-gray-900/60 border border-gray-800 p-6 transition-all duration-300 hover:scale-[1.02] hover:border-gray-700 hover:bg-gray-900/80 hover:shadow-lg">
-    {/* Subtle glow on hover */}
-    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-    
-    <div className="relative z-10">
-      {guide.label && (
-        <div className="inline-flex items-center rounded-md bg-gray-800 px-2.5 py-1 text-xs font-mono text-gray-300 mb-3">
-          {guide.label}
-        </div>
-      )}
-      
-      <div className="flex items-start justify-between">
-        <div className="flex-1">
-          <h4 className="text-white font-semibold leading-snug mb-2 group-hover:text-gray-100 transition-colors">
-            {guide.title}
-          </h4>
-        </div>
-        
-        {/* Icon placeholder */}
-        <div className="ml-4 h-10 w-10 rounded-lg bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-400 group-hover:text-gray-300 transition-colors">
-          {guide.icon}
-        </div>
-      </div>
-    </div>
-  </div>
-)
-
 export function GetStartedSection() {
   const primaryGuide = guides.find(g => g.type === 'primary')!
   const secondaryGuides = guides.filter(g => g.type === 'secondary')

@@ -1,4 +1,4 @@
-import { Github, Twitter, Linkedin, Youtube, Instagram, ExternalLink } from 'lucide-react'
+import { Github, Twitter, Linkedin, Youtube, Instagram } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const footerSections = [
@@ -122,7 +122,7 @@ export function Footer() {
         <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center space-y-4 lg:space-y-0">
             <div className="flex flex-wrap gap-6">
-              {legalLinks.map((link, index) => (
+              {legalLinks.map((link) => (
                 <Link
                   key={link.name}
                   to={link.href}

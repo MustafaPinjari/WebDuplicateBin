@@ -65,7 +65,7 @@ export function CLIInstallationSection() {
           
           {/* Terminal Command Boxes */}
           <div className="space-y-4 max-w-4xl mx-auto">
-            {commands.map((cmd, index) => (
+            {commands.map((cmd) => (
               <div key={cmd.id} className="text-left">
                 {/* Command Label */}
                 <div className="text-sm text-gray-500 mb-2 font-mono">

@@ -1,5 +1,5 @@
 "use client"
-import { useRef, useEffect } from "react"
+import { useEffect } from "react"
 import { CheckCircle, Download, ExternalLink, Terminal, FileText, Shield, Zap, Users, ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
