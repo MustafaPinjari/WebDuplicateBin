@@ -47,17 +47,25 @@ A modern SaaS landing page for DuplicateBin, a safe duplicate file management to
 ## 📁 Project Structure
 
 ```
-src/
-├── components/
-│   ├── layout/         # Navbar, Footer
-│   └── ui/             # Reusable UI components
-├── pages/
-│   ├── landing/        # Landing page sections
-│   ├── auth/           # Authentication pages
-│   └── dashboard/      # Dashboard (placeholder)
-├── styles/             # Global CSS and animations
-├── utils/              # Utility functions
-└── store/              # State management
+├── 📁 public
+│   └── 📁 images
+├── 📁 src
+│   ├── 📁 app
+│   ├── 📁 assets
+│   ├── 📁 components
+│   │   ├── 📁 common
+│   │   ├── 📁 layout
+│   │   └── 📁 ui
+│   ├── 📁 hooks
+│   ├── 📁 pages
+│   │   ├── 📁 auth
+│   │   ├── 📁 dashboard
+│   │   └── 📁 landing
+│   ├── 📁 services
+│   ├── 📁 store
+│   ├── 📁 styles
+│   └── 📁 utils
+└── 📄 LICENSE
 ```
 
 ## 🎨 Landing Page Sections
