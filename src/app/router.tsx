@@ -1,11 +1,11 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom'
-import { LandingPage } from '@/pages/landing/landing-page'
-import { LoginPage } from '@/pages/auth/login-page'
-import { RegisterPage } from '@/pages/auth/register-page'
-import { ForgotPasswordPage } from '@/pages/auth/forgot-password-page'
-import { DownloadSuccessPage } from '@/pages/download-success'
-import { AppLayout } from '@/components/layout/app-layout'
-import { DashboardPage } from '@/pages/dashboard/dashboard-page'
+import { LandingPage } from '../pages/landing/landing-page'
+import { LoginPage } from '../pages/auth/login-page'
+import { RegisterPage } from '../pages/auth/register-page'
+import { ForgotPasswordPage } from '../pages/auth/forgot-password-page'
+import { DownloadSuccessPage } from '../pages/download-success'
+import { AppLayout } from '../components/layout/app-layout'
+import { DashboardPage } from '../pages/dashboard/dashboard-page'
 import { ProtectedRoute } from './protected-route'
 
 export const router = createBrowserRouter([

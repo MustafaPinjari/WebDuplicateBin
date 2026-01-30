@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Copy, Check, ArrowRight } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { Button } from '../../components/ui/button'
 
 export function CLIInstallationSection() {
   const [copiedCommand, setCopiedCommand] = useState<string | null>(null)
