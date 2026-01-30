@@ -1,29 +1,31 @@
 import { Link } from 'react-router-dom'
 import { Button } from '../ui/button'
-import { Search, ChevronDown } from 'lucide-react'
+import { Search, ChevronDown, Menu, X } from 'lucide-react'
 import { useAuthStore } from '../../store/auth'
 import { UserDropdown } from './user-dropdown'
+import { useState } from 'react'
 
 export function Navbar() {
   const { isAuthenticated } = useAuthStore()
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   return (
-    <nav className="sticky top-0 z-50 w-full py-6">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="flex h-14 items-center justify-between bg-transparent border border-gray-800 rounded-2xl px-6">
+    <nav className="sticky top-0 z-50 w-full py-3 sm:py-6">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="flex h-12 sm:h-14 items-center justify-between bg-transparent border border-gray-800 rounded-xl sm:rounded-2xl px-4 sm:px-6">
           {/* Logo Section */}
           <div className="flex items-center">
-            <Link to="/" className="flex items-center space-x-2.5 group">
+            <Link to="/" className="flex items-center space-x-2 sm:space-x-2.5 group">
               <img 
                 src="/images/logo.png" 
                 alt="DuplicateBin Logo" 
-                className="h-7 w-7 object-contain transition-transform duration-200 group-hover:scale-105"
+                className="h-6 w-6 sm:h-7 sm:w-7 object-contain transition-transform duration-200 group-hover:scale-105"
               />
-              <span className="font-medium text-white text-base tracking-tight">DuplicateBin</span>
+              <span className="font-medium text-white text-sm sm:text-base tracking-tight">DuplicateBin</span>
             </Link>
           </div>
           
-          {/* Center Navigation */}
+          {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-1">
             <Link 
               to="/cli" 
@@ -90,8 +92,8 @@ export function Navbar() {
           </div>
           
           {/* Right Section */}
-          <div className="flex items-center space-x-3">
-            {/* Search Command */}
+          <div className="flex items-center space-x-2 sm:space-x-3">
+            {/* Search Command - Hidden on mobile */}
             <Button 
               variant="ghost" 
               size="sm" 
@@ -108,12 +110,12 @@ export function Navbar() {
               <UserDropdown />
             ) : (
               <>
-                {/* Sign In Button */}
+                {/* Sign In Button - Hidden on small mobile */}
                 <Button 
                   variant="ghost" 
                   size="sm" 
                   asChild
-                  className="hidden sm:inline-flex text-gray-400 hover:text-white hover:bg-white/[0.05] border-none px-3 py-1.5 text-sm font-medium transition-all duration-200"
+                  className="hidden sm:inline-flex text-gray-400 hover:text-white hover:bg-white/[0.05] border-none px-2 sm:px-3 py-1.5 text-xs sm:text-sm font-medium transition-all duration-200"
                 >
                   <Link to="/auth/login">Sign in</Link>
                 </Button>
@@ -122,14 +124,129 @@ export function Navbar() {
                 <Button 
                   size="sm" 
                   asChild
-                  className="bg-white text-black hover:bg-gray-100 active:bg-gray-200 rounded-lg px-4 py-1.5 text-sm font-medium transition-all duration-200 hover:scale-[1.02] focus:ring-2 focus:ring-white/20 focus:ring-offset-2 focus:ring-offset-gray-900"
+                  className="bg-white text-black hover:bg-gray-100 active:bg-gray-200 rounded-lg px-3 sm:px-4 py-1.5 text-xs sm:text-sm font-medium transition-all duration-200 hover:scale-[1.02] focus:ring-2 focus:ring-white/20 focus:ring-offset-2 focus:ring-offset-gray-900"
                 >
                   <Link to="/download">Download</Link>
                 </Button>
               </>
             )}
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="lg:hidden p-2 text-gray-400 hover:text-white transition-colors"
+            >
+              {isMobileMenuOpen ? (
+                <X className="h-5 w-5" />
+              ) : (
+                <Menu className="h-5 w-5" />
+              )}
+            </button>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden mt-2 bg-gray-900 border border-gray-800 rounded-xl shadow-xl">
+            <div className="py-4 px-4 space-y-2">
+              <Link 
+                to="/cli" 
+                className="block px-3 py-2 text-sm font-medium text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                CLI
+              </Link>
+              <Link 
+                to="/powers" 
+                className="block px-3 py-2 text-sm font-medium text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Powers
+              </Link>
+              <Link 
+                to="/autonomous-agent" 
+                className="block px-3 py-2 text-sm font-medium text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Agent
+              </Link>
+              <Link 
+                to="/enterprise" 
+                className="block px-3 py-2 text-sm font-medium text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Enterprise
+              </Link>
+              <Link 
+                to="/pricing" 
+                className="block px-3 py-2 text-sm font-medium text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Pricing
+              </Link>
+              <Link 
+                to="/docs" 
+                className="block px-3 py-2 text-sm font-medium text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Docs
+              </Link>
+              
+              {/* Mobile Resources */}
+              <div className="border-t border-gray-800 pt-2 mt-2">
+                <div className="px-3 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wider">Resources</div>
+                <Link 
+                  to="/blog" 
+                  className="block px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Blog
+                </Link>
+                <Link 
+                  to="/changelog" 
+                  className="block px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Changelog
+                </Link>
+                <Link 
+                  to="/community" 
+                  className="block px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Community
+                </Link>
+                <Link 
+                  to="/support" 
+                  className="block px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Support
+                </Link>
+              </div>
+
+              {/* Mobile Auth Actions */}
+              {!isAuthenticated && (
+                <div className="border-t border-gray-800 pt-2 mt-2 space-y-2">
+                  <Link 
+                    to="/auth/login" 
+                    className="block px-3 py-2 text-sm font-medium text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Sign in
+                  </Link>
+                  <Link 
+                    to="/download" 
+                    className="block px-3 py-2 text-sm font-medium bg-white text-black hover:bg-gray-100 rounded-lg transition-colors text-center"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Download
+                  </Link>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   )

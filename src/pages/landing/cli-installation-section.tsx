@@ -39,24 +39,24 @@ export function CLIInstallationSection() {
   }
 
   return (
-    <section className="relative py-32 bg-black">
+    <section className="relative py-16 sm:py-24 lg:py-32 bg-black">
       <div className="absolute inset-0 bg-black" />
       
-      <div className="relative container mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
         <div className="max-w-4xl mx-auto text-center">
           {/* Main Headline */}
-          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[0.9] mb-8">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-white leading-[0.9] mb-6 sm:mb-8">
             Clean duplicates safely,{' '}
             <span className="text-gray-300">directly from your system</span>
           </h2>
           
           {/* Supporting Text */}
-          <p className="text-xl sm:text-2xl leading-relaxed text-gray-400 font-light max-w-3xl mx-auto mb-6">
+          <p className="text-lg sm:text-xl lg:text-2xl leading-relaxed text-gray-400 font-light max-w-3xl mx-auto mb-4 sm:mb-6">
             Duplicate Bin scans your storage, detects duplicate files with precision, and archives them safely before deletion. No risky automation. No system damage. Just full control.
           </p>
           
           {/* Learn More Link */}
-          <div className="mb-16">
+          <div className="mb-12 sm:mb-16">
             <button className="inline-flex items-center text-gray-500 hover:text-gray-300 transition-colors text-sm font-medium">
               Learn more about CLI
               <ArrowRight className="ml-2 h-4 w-4" />
@@ -64,18 +64,18 @@ export function CLIInstallationSection() {
           </div>
           
           {/* Terminal Command Boxes */}
-          <div className="space-y-4 max-w-4xl mx-auto">
+          <div className="space-y-3 sm:space-y-4 max-w-4xl mx-auto">
             {commands.map((cmd) => (
               <div key={cmd.id} className="text-left">
                 {/* Command Label */}
-                <div className="text-sm text-gray-500 mb-2 font-mono">
+                <div className="text-xs sm:text-sm text-gray-500 mb-2 font-mono px-1">
                   # {cmd.label}
                 </div>
                 
                 {/* Terminal Box */}
-                <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-4 font-mono text-sm relative group hover:border-gray-700 transition-colors">
-                  <div className="flex items-center justify-between">
-                    <code className="text-green-400 flex-1 pr-4 break-all">
+                <div className="bg-gray-900/50 border border-gray-800 rounded-lg sm:rounded-xl p-3 sm:p-4 font-mono text-xs sm:text-sm relative group hover:border-gray-700 transition-colors">
+                  <div className="flex items-start sm:items-center justify-between gap-2 sm:gap-4">
+                    <code className="text-green-400 flex-1 break-all leading-relaxed">
                       {cmd.command}
                     </code>
                     
@@ -84,12 +84,12 @@ export function CLIInstallationSection() {
                       variant="ghost"
                       size="sm"
                       onClick={() => handleCopy(cmd.command, cmd.id)}
-                      className="flex-shrink-0 h-8 w-8 p-0 text-gray-400 hover:text-white hover:bg-gray-800 transition-colors"
+                      className="flex-shrink-0 h-7 w-7 sm:h-8 sm:w-8 p-0 text-gray-400 hover:text-white hover:bg-gray-800 transition-colors"
                     >
                       {copiedCommand === cmd.id ? (
-                        <Check className="h-4 w-4 text-green-500" />
+                        <Check className="h-3 w-3 sm:h-4 sm:w-4 text-green-500" />
                       ) : (
-                        <Copy className="h-4 w-4" />
+                        <Copy className="h-3 w-3 sm:h-4 sm:w-4" />
                       )}
                     </Button>
                   </div>
@@ -99,8 +99,8 @@ export function CLIInstallationSection() {
           </div>
           
           {/* Footer Hint */}
-          <div className="mt-12">
-            <p className="text-sm text-gray-500 font-medium">
+          <div className="mt-8 sm:mt-12">
+            <p className="text-xs sm:text-sm text-gray-500 font-medium">
               Works on Linux • Desktop & Server
             </p>
           </div>
@@ -108,7 +108,7 @@ export function CLIInstallationSection() {
       </div>
       
       {/* Subtle background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-green-500/5 rounded-full blur-3xl opacity-40" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[600px] h-[200px] sm:h-[300px] bg-green-500/5 rounded-full blur-3xl opacity-40" />
     </section>
   )
 }

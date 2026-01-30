@@ -58,20 +58,20 @@ const legalLinks = [
 export function Footer() {
   return (
     <footer className="bg-black border-t border-white/10">
-      <div className="container mx-auto px-6 py-16">
+      <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16">
         {/* Main footer content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-12 mb-12 sm:mb-16">
           {/* Logo and brand */}
-          <div className="lg:col-span-2">
+          <div className="sm:col-span-2 lg:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
               <img 
                 src="/images/logo.png" 
                 alt="DuplicateBin Logo" 
-                className="h-10 w-10 object-contain"
+                className="h-8 w-8 sm:h-10 sm:w-10 object-contain"
               />
-              <span className="font-bold text-white text-2xl">DuplicateBin</span>
+              <span className="font-bold text-white text-xl sm:text-2xl">DuplicateBin</span>
             </div>
-            <p className="text-gray-400 leading-relaxed max-w-md mb-8">
+            <p className="text-gray-400 leading-relaxed max-w-md mb-8 text-sm sm:text-base">
               Safe duplicate file management with archive-first protection. 
               Clean your storage without fear of data loss.
             </p>
@@ -98,11 +98,11 @@ export function Footer() {
 
           {/* Footer sections */}
           {footerSections.map((section) => (
-            <div key={section.title}>
-              <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-6">
+            <div key={section.title} className="sm:col-span-1">
+              <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-4 sm:mb-6">
                 {section.title}
               </h4>
-              <ul className="space-y-4">
+              <ul className="space-y-3 sm:space-y-4">
                 {section.links.map((link) => (
                   <li key={link.name}>
                     <Link
@@ -119,9 +119,9 @@ export function Footer() {
         </div>
 
         {/* Legal links */}
-        <div className="border-t border-gray-800 pt-8">
+        <div className="border-t border-gray-800 pt-6 sm:pt-8">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center space-y-4 lg:space-y-0">
-            <div className="flex flex-wrap gap-6">
+            <div className="flex flex-wrap gap-4 sm:gap-6">
               {legalLinks.map((link) => (
                 <Link
                   key={link.name}
