@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
-import { Button } from '@/components/ui/button'
+import { Button } from '../ui/button'
 import { Search, ChevronDown } from 'lucide-react'
-import { useAuthStore } from '@/store/auth'
+import { useAuthStore } from '../../store/auth'
 import { UserDropdown } from './user-dropdown'
 
 export function Navbar() {

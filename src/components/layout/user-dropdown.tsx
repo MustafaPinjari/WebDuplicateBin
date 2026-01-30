@@ -1,13 +1,13 @@
 import { LogOut, Settings, User } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { Button } from '../ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
-import { useAuthStore } from '@/store/auth'
+} from '../ui/dropdown-menu'
+import { useAuthStore } from '../../store/auth'
 import { useNavigate } from 'react-router-dom'
 
 export function UserDropdown() {
