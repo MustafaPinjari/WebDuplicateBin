@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Copy, Check, ArrowRight } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { Button } from '../../components/ui/button'
 
 export function CLIInstallationSection() {
@@ -39,7 +40,7 @@ export function CLIInstallationSection() {
   }
 
   return (
-    <section className="relative py-16 sm:py-24 lg:py-32 bg-black">
+    <section id="cli-installation" className="relative py-16 sm:py-24 lg:py-32 bg-black">
       <div className="absolute inset-0 bg-black" />
       
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
@@ -57,10 +58,13 @@ export function CLIInstallationSection() {
           
           {/* Learn More Link */}
           <div className="mb-12 sm:mb-16">
-            <button className="inline-flex items-center text-gray-500 hover:text-gray-300 transition-colors text-sm font-medium">
+            <Link 
+              to="/docs/cli" 
+              className="inline-flex items-center text-gray-500 hover:text-gray-300 transition-colors text-sm font-medium hover:underline"
+            >
               Learn more about CLI
               <ArrowRight className="ml-2 h-4 w-4" />
-            </button>
+            </Link>
           </div>
           
           {/* Terminal Command Boxes */}

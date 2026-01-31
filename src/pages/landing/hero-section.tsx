@@ -21,7 +21,7 @@ export function HeroSection() {
           
           {/* Main Content - Responsive layout */}
           <div className="text-left">
-            <h1 className="text-3xl sm:text-6xl md:text-5xl lg:text-8xl xl:text-[8rem] 2xl:text-[11rem] font-bold tracking-tight text-white leading-[0.10] sm:leading-[0.9] max-w-none">
+            <h1 className="text-3xl sm:text-6xl md:text-5xl lg:text-8xl xl:text-[8rem] 2xl:text-[11rem] font-bold tracking-tight text-white leading-tight sm:leading-[0.9] md:leading-[0.85] lg:leading-[0.8] xl:leading-[0.75] 2xl:leading-[0.7] max-w-none">
               Smart duplicate file cleanup<br />
               <span className="text-gray-300">from scan to safe removal</span>
             </h1>
@@ -79,6 +79,14 @@ export function HeroSection() {
                 src="/images/HeroSection.png" 
                 alt="DuplicateBin Dashboard Interface" 
                 className="w-full h-full object-cover"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  const parent = target.parentElement;
+                  if (parent) {
+                    parent.innerHTML = '<div class="w-full h-full bg-gray-800 flex items-center justify-center text-gray-400">Image not available</div>';
+                  }
+                }}
               />
               {/* Subtle bottom fade effect */}
               <div className="absolute bottom-0 left-0 right-0 h-[20%] bg-gradient-to-t from-black/100 to-transparent"></div>

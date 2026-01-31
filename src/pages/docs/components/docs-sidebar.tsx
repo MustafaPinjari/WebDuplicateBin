@@ -31,15 +31,6 @@ const navigationData: NavItem[] = [
     ]
   },
   {
-    title: "CLI",
-    icon: <Terminal className="h-4 w-4" />,
-    items: [
-      { title: "Installation", href: "/docs/cli/installation" },
-      { title: "Commands", href: "/docs/cli/commands" },
-      { title: "Automation Examples", href: "/docs/cli/automation" },
-    ]
-  },
-  {
     title: "Advanced Usage",
     icon: <Zap className="h-4 w-4" />,
     items: [
@@ -141,7 +132,7 @@ function NavSection({ section, level = 0 }: NavSectionProps) {
       {section.items && isOpen && (
         <div className="mt-1 sm:mt-2 space-y-1">
           {section.items.map((item, index) => (
-            <NavSection key={index} section={item} level={level + 1} />
+            <NavSection key={`${item.title}-${item.href || index}`} section={item} level={level + 1} />
           ))}
         </div>
       )}
@@ -154,7 +145,7 @@ export function DocsSidebar() {
     <div className="px-4 sm:px-6 py-6 sm:py-8 h-full flex flex-col">
       <div className="flex-1 space-y-2 sm:space-y-3">
         {navigationData.map((section, index) => (
-          <NavSection key={index} section={section} />
+          <NavSection key={`${section.title}-${section.href || index}`} section={section} />
         ))}
       </div>
       

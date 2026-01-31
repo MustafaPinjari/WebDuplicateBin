@@ -32,6 +32,10 @@ export function DocsContent({ title, description, children, heroImage }: DocsCon
               src={heroImage} 
               alt={title}
               className="w-full h-auto"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+              }}
             />
           </div>
         </div>

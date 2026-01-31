@@ -16,7 +16,7 @@ import { DocsScanningEnginePage } from '../pages/docs/scanning-engine'
 import { DocsDuplicateDetectionPage } from '../pages/docs/duplicate-detection'
 import { DocsArchiveWorkflowPage } from '../pages/docs/archive-workflow'
 import { DocsFiltersRulesPage } from '../pages/docs/filters-rules'
-import { DocsCliCommandsPage } from '../pages/docs/cli/commands'
+import { CLIPage } from '../pages/cli/cli-page'
 
 export const router = createBrowserRouter([
   {
@@ -38,6 +38,10 @@ export const router = createBrowserRouter([
   {
     path: '/auth/forgot-password',
     element: <ForgotPasswordPage />,
+  },
+  {
+    path: '/cli',
+    element: <CLIPage />,
   },
   {
     path: '/docs',
@@ -72,22 +76,10 @@ export const router = createBrowserRouter([
         element: <DocsArchiveWorkflowPage />,
       },
       {
-        path: 'cli/commands',
-        element: <DocsCliCommandsPage />,
-      },
-      // Placeholder routes for remaining pages
-      {
         path: 'filters-rules',
         element: <DocsFiltersRulesPage />,
       },
-      {
-        path: 'cli/installation',
-        element: <div className="p-8 text-center text-gray-400">CLI Installation documentation coming soon...</div>,
-      },
-      {
-        path: 'cli/automation',
-        element: <div className="p-8 text-center text-gray-400">CLI Automation documentation coming soon...</div>,
-      },
+      // Placeholder routes for remaining pages
       {
         path: 'advanced/performance',
         element: <div className="p-8 text-center text-gray-400">Performance Tuning documentation coming soon...</div>,

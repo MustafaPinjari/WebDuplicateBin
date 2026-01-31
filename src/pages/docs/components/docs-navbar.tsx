@@ -19,18 +19,22 @@ export function DocsNavbar() {
   }
 
   return (
-    <nav className="sticky top-0 z-50 w-full h-16 bg-black/95 backdrop-blur-sm border-b border-gray-800">
-      <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
+    <nav className="sticky top-0 z-50 w-full h-20 bg-black/95 backdrop-blur-sm border-b border-gray-800">
+      <div className="mx-auto max-w-full px-6 sm:px-6 lg:px-8">
+        <div className="flex h-20 items-center justify-between">
           {/* Logo Section */}
           <div className="flex items-center">
-            <Link to="/" className="flex items-center space-x-2.5 group">
+            <Link to="/" className="flex items-center space-x-3 group">
               <img 
                 src="/images/logo.png" 
                 alt="DuplicateBin Logo" 
-                className="h-7 w-7 object-contain transition-transform duration-200 group-hover:scale-105"
+                className="h-8 w-8 object-contain transition-transform duration-200 group-hover:scale-105"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                }}
               />
-              <span className="font-medium text-white text-base tracking-tight">DuplicateBin</span>
+              <span className="font-medium text-white text-lg tracking-tight">DuplicateBin</span>
             </Link>
           </div>
           
@@ -100,7 +104,7 @@ export function DocsNavbar() {
           </div>
           
           {/* Right Section */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-4">
             {/* Search Command */}
             <Button 
               variant="ghost" 
@@ -136,9 +140,9 @@ export function DocsNavbar() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 text-gray-400 hover:text-white transition-colors"
+              className="lg:hidden p-3 text-gray-400 hover:text-white transition-colors rounded-lg hover:bg-white/[0.05]"
             >
-              {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
         </div>

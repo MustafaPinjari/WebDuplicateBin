@@ -58,9 +58,9 @@ export function DocsTableOfContents() {
       </div>
       
       <nav className="space-y-2">
-        {tocItems.map((item) => (
+        {tocItems.map((item, index) => (
           <a
-            key={item.id}
+            key={`${item.id}-${index}`}
             href={`#${item.id}`}
             className={`
               block text-sm transition-all duration-200 hover:text-white py-2 px-3 rounded-lg border-l-2 transition-all duration-200

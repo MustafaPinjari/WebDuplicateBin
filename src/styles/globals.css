@@ -631,3 +631,121 @@ html {
 .docs-content-scroll::-webkit-scrollbar-thumb:hover {
   background: rgba(75, 85, 99, 0.6);
 }
+
+/* Enhanced Mobile Navbar Sizing */
+@media (max-width: 1024px) {
+  /* Larger navbar height for mobile */
+  .mobile-navbar {
+    min-height: 80px;
+  }
+  
+  /* Larger touch targets for mobile navigation */
+  .mobile-nav-button {
+    min-height: 48px;
+    min-width: 48px;
+    padding: 12px;
+  }
+  
+  /* Larger logo and text for mobile */
+  .mobile-logo {
+    height: 32px;
+    width: 32px;
+  }
+  
+  .mobile-brand-text {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  /* Enhanced mobile menu button */
+  .mobile-menu-toggle {
+    padding: 12px;
+    border-radius: 8px;
+    min-height: 48px;
+    min-width: 48px;
+  }
+  
+  /* Better spacing for mobile navbar items */
+  .mobile-navbar-content {
+    padding: 0 24px;
+  }
+  
+  /* Consistent button heights in navbar */
+  nav button[class*="Button"],
+  nav a[class*="Button"] {
+    height: 36px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+}
+
+/* Extra large mobile devices (phablets) */
+@media (max-width: 640px) {
+  .mobile-navbar {
+    min-height: 84px;
+  }
+  
+  .mobile-navbar-content {
+    padding: 0 20px;
+  }
+  
+  /* Even larger touch targets for small screens */
+  .mobile-nav-button {
+    min-height: 52px;
+    min-width: 52px;
+    padding: 14px;
+  }
+  
+  .mobile-menu-toggle {
+    padding: 14px;
+    min-height: 52px;
+    min-width: 52px;
+  }
+}
+
+/* Improved mobile navbar visibility */
+@media (max-width: 768px) {
+  /* Ensure navbar is always visible and prominent */
+  nav[class*="sticky"] {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Better contrast for mobile */
+  nav[class*="sticky"] {
+    background: rgba(0, 0, 0, 0.98);
+  }
+  
+  /* Larger interactive elements */
+  button, a[role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Ultra-wide mobile screens */
+@media (max-width: 480px) {
+  .mobile-navbar {
+    min-height: 88px;
+  }
+  
+  /* Maximum touch target size for very small screens */
+  .mobile-nav-button,
+  .mobile-menu-toggle {
+    min-height: 56px;
+    min-width: 56px;
+    padding: 16px;
+  }
+  
+  /* Larger brand elements */
+  .mobile-logo {
+    height: 36px;
+    width: 36px;
+  }
+  
+  .mobile-brand-text {
+    font-size: 20px;
+  }
+}
