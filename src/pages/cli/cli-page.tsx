@@ -5,7 +5,7 @@ import { Button } from '../../components/ui/button'
 import { ResourcesSection } from '../../components/sections/resources-section'
 import { TextDivider } from '../../components/sections/text-divider'
 import { TransformSection } from '../../components/sections/transform-section'
-import { Terminal, Download, Zap, Archive, Settings, CheckCircle, Copy, Check, Play, ArrowRight } from 'lucide-react'
+import { Terminal, Zap, Archive, Settings, CheckCircle, Copy, Check, Play, ArrowRight } from 'lucide-react'
 
 export function CLIPage() {
   const [copiedCommand, setCopiedCommand] = useState<string | null>(null)

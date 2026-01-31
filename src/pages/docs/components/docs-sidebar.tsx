@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { ChevronRight, FileText, Terminal, Shield, Zap, Settings, Book, HelpCircle } from 'lucide-react'
+import { ChevronRight, FileText, Shield, Zap, Settings, Book, HelpCircle } from 'lucide-react'
 
 interface NavItem {
   title: string
