@@ -27,36 +27,58 @@ export function Navbar() {
           
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-1">
-            <Link 
-              to="/cli" 
+            <a 
+              href="#cli-installation" 
               className="px-3 py-1.5 text-sm font-medium text-gray-400 hover:text-white transition-colors duration-200 rounded-lg hover:bg-white/[0.05]"
+              onClick={(e) => {
+                e.preventDefault()
+                const element = document.getElementById('cli-installation')
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' })
+                }
+              }}
             >
               CLI
-            </Link>
-            <Link 
-              to="/powers" 
+            </a>
+            <a 
+              href="#features" 
               className="px-3 py-1.5 text-sm font-medium text-gray-400 hover:text-white transition-colors duration-200 rounded-lg hover:bg-white/[0.05]"
+              onClick={(e) => {
+                e.preventDefault()
+                const element = document.getElementById('features')
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' })
+                }
+              }}
             >
-              Powers
-            </Link>
-            <Link 
-              to="/autonomous-agent" 
+              Features
+            </a>
+            <a 
+              href="#comprehensive-features" 
               className="px-3 py-1.5 text-sm font-medium text-gray-400 hover:text-white transition-colors duration-200 rounded-lg hover:bg-white/[0.05]"
-            >
-              Agent
-            </Link>
-            <Link 
-              to="/enterprise" 
-              className="px-3 py-1.5 text-sm font-medium text-gray-400 hover:text-white transition-colors duration-200 rounded-lg hover:bg-white/[0.05]"
+              onClick={(e) => {
+                e.preventDefault()
+                const element = document.getElementById('comprehensive-features')
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' })
+                }
+              }}
             >
               Enterprise
-            </Link>
-            <Link 
-              to="/pricing" 
+            </a>
+            <a 
+              href="#download" 
               className="px-3 py-1.5 text-sm font-medium text-gray-400 hover:text-white transition-colors duration-200 rounded-lg hover:bg-white/[0.05]"
+              onClick={(e) => {
+                e.preventDefault()
+                const element = document.getElementById('download')
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' })
+                }
+              }}
             >
               Pricing
-            </Link>
+            </a>
             <Link 
               to="/docs" 
               className="px-3 py-1.5 text-sm font-medium text-gray-400 hover:text-white transition-colors duration-200 rounded-lg hover:bg-white/[0.05]"
@@ -74,18 +96,38 @@ export function Navbar() {
               {/* Dropdown Menu */}
               <div className="absolute top-full left-0 mt-2 w-48 bg-gray-900 border border-gray-800 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-1 group-hover:translate-y-0">
                 <div className="py-2">
-                  <Link to="/blog" className="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800 transition-colors">
-                    Blog
+                  <Link to="/docs" className="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800 transition-colors">
+                    Documentation
                   </Link>
-                  <Link to="/changelog" className="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800 transition-colors">
-                    Changelog
-                  </Link>
-                  <Link to="/community" className="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800 transition-colors">
+                  <a 
+                    href="#faq" 
+                    className="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800 transition-colors"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      const element = document.getElementById('faq')
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' })
+                      }
+                    }}
+                  >
+                    FAQ
+                  </a>
+                  <a href="https://github.com/duplicate-bin" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800 transition-colors">
+                    GitHub
+                  </a>
+                  <a 
+                    href="#testimonials" 
+                    className="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800 transition-colors"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      const element = document.getElementById('testimonials')
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' })
+                      }
+                    }}
+                  >
                     Community
-                  </Link>
-                  <Link to="/support" className="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800 transition-colors">
-                    Support
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>
@@ -123,10 +165,15 @@ export function Navbar() {
                 {/* Download CTA */}
                 <Button 
                   size="sm" 
-                  asChild
                   className="bg-white text-black hover:bg-gray-100 active:bg-gray-200 rounded-lg px-3 sm:px-4 py-1.5 text-xs sm:text-sm font-medium transition-all duration-200 hover:scale-[1.02] focus:ring-2 focus:ring-white/20 focus:ring-offset-2 focus:ring-offset-gray-900"
+                  onClick={() => {
+                    const element = document.getElementById('download')
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth' })
+                    }
+                  }}
                 >
-                  <Link to="/download">Download</Link>
+                  Download
                 </Button>
               </>
             )}
@@ -149,41 +196,62 @@ export function Navbar() {
         {isMobileMenuOpen && (
           <div className="lg:hidden mt-2 bg-gray-900 border border-gray-800 rounded-xl shadow-xl">
             <div className="py-4 px-4 space-y-2">
-              <Link 
-                to="/cli" 
+              <a 
+                href="#cli-installation" 
                 className="block px-3 py-2 text-sm font-medium text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={(e) => {
+                  e.preventDefault()
+                  const element = document.getElementById('cli-installation')
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' })
+                  }
+                  setIsMobileMenuOpen(false)
+                }}
               >
                 CLI
-              </Link>
-              <Link 
-                to="/powers" 
+              </a>
+              <a 
+                href="#features" 
                 className="block px-3 py-2 text-sm font-medium text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={(e) => {
+                  e.preventDefault()
+                  const element = document.getElementById('features')
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' })
+                  }
+                  setIsMobileMenuOpen(false)
+                }}
               >
-                Powers
-              </Link>
-              <Link 
-                to="/autonomous-agent" 
+                Features
+              </a>
+              <a 
+                href="#comprehensive-features" 
                 className="block px-3 py-2 text-sm font-medium text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Agent
-              </Link>
-              <Link 
-                to="/enterprise" 
-                className="block px-3 py-2 text-sm font-medium text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={(e) => {
+                  e.preventDefault()
+                  const element = document.getElementById('comprehensive-features')
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' })
+                  }
+                  setIsMobileMenuOpen(false)
+                }}
               >
                 Enterprise
-              </Link>
-              <Link 
-                to="/pricing" 
+              </a>
+              <a 
+                href="#download" 
                 className="block px-3 py-2 text-sm font-medium text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={(e) => {
+                  e.preventDefault()
+                  const element = document.getElementById('download')
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' })
+                  }
+                  setIsMobileMenuOpen(false)
+                }}
               >
                 Pricing
-              </Link>
+              </a>
               <Link 
                 to="/docs" 
                 className="block px-3 py-2 text-sm font-medium text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-colors"
@@ -196,33 +264,43 @@ export function Navbar() {
               <div className="border-t border-gray-800 pt-2 mt-2">
                 <div className="px-3 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wider">Resources</div>
                 <Link 
-                  to="/blog" 
+                  to="/docs" 
                   className="block px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Blog
+                  Documentation
                 </Link>
-                <Link 
-                  to="/changelog" 
+                <a 
+                  href="#faq" 
                   className="block px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    const element = document.getElementById('faq')
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth' })
+                    }
+                    setIsMobileMenuOpen(false)
+                  }}
                 >
-                  Changelog
-                </Link>
-                <Link 
-                  to="/community" 
+                  FAQ
+                </a>
+                <a href="https://github.com/duplicate-bin" target="_blank" rel="noopener noreferrer" className="block px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-colors">
+                  GitHub
+                </a>
+                <a 
+                  href="#testimonials" 
                   className="block px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    const element = document.getElementById('testimonials')
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth' })
+                    }
+                    setIsMobileMenuOpen(false)
+                  }}
                 >
                   Community
-                </Link>
-                <Link 
-                  to="/support" 
-                  className="block px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Support
-                </Link>
+                </a>
               </div>
 
               {/* Mobile Auth Actions */}
@@ -235,13 +313,18 @@ export function Navbar() {
                   >
                     Sign in
                   </Link>
-                  <Link 
-                    to="/download" 
-                    className="block px-3 py-2 text-sm font-medium bg-white text-black hover:bg-gray-100 rounded-lg transition-colors text-center"
-                    onClick={() => setIsMobileMenuOpen(false)}
+                  <button 
+                    className="block w-full px-3 py-2 text-sm font-medium bg-white text-black hover:bg-gray-100 rounded-lg transition-colors text-center"
+                    onClick={() => {
+                      const element = document.getElementById('download')
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' })
+                      }
+                      setIsMobileMenuOpen(false)
+                    }}
                   >
                     Download
-                  </Link>
+                  </button>
                 </div>
               )}
             </div>

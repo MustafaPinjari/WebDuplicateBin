@@ -1,10 +1,11 @@
 # DuplicateBin - Safe Duplicate File Management
 
-A modern SaaS landing page for DuplicateBin, a safe duplicate file management tool with archive-first protection. Built with React 18, TypeScript, and modern web technologies.
+A modern SaaS website for DuplicateBin, a safe duplicate file management tool with archive-first protection. Built with React 18, TypeScript, and modern web technologies.
 
 ## 🌟 Features
 
 - **Modern Landing Page**: Beautiful, responsive design with dark theme
+- **Complete Documentation**: Comprehensive docs with responsive design
 - **Archive-First Safety**: Emphasizes safe duplicate cleanup approach
 - **Premium UI/UX**: Professional SaaS design with smooth animations
 - **Testimonials**: Social proof with animated marquee
@@ -42,7 +43,7 @@ A modern SaaS landing page for DuplicateBin, a safe duplicate file management to
    ```
 
 4. **Open browser**
-   Navigate to `http://localhost:5173`
+   Navigate to `http://localhost:5174`
 
 ## 📁 Project Structure
 
@@ -60,16 +61,19 @@ A modern SaaS landing page for DuplicateBin, a safe duplicate file management to
 │   ├── 📁 pages
 │   │   ├── 📁 auth
 │   │   ├── 📁 dashboard
+│   │   ├── 📁 docs        # 📚 Complete documentation system
 │   │   └── 📁 landing
 │   ├── 📁 services
 │   ├── 📁 store
 │   ├── 📁 styles
 │   └── 📁 utils
+├── 📄 DEPLOYMENT_GUIDE.md  # 🚀 Domain & hosting setup guide
 └── 📄 LICENSE
 ```
 
-## 🎨 Landing Page Sections
+## 🎨 Website Sections
 
+### Landing Page
 1. **Hero Section** - Main value proposition with dashboard preview
 2. **Value Proposition** - Trust-building messaging
 3. **CLI Installation** - Terminal commands for installation
@@ -78,6 +82,35 @@ A modern SaaS landing page for DuplicateBin, a safe duplicate file management to
 6. **Get Started** - Guides and resources
 7. **FAQ** - Common questions and answers
 8. **Download CTA** - Primary conversion section
+
+### Documentation
+- **Responsive Design** - Works perfectly on all devices
+- **Three-Column Layout** - Navigation, content, and table of contents
+- **Dark Theme** - Consistent with landing page design
+- **Interactive Elements** - Copy-to-clipboard code blocks, smooth scrolling
+- **Comprehensive Content** - Installation, usage, API docs, and more
+
+## 🌐 Deployment & Domain Setup
+
+### 🚀 Quick Deploy
+The project is ready for deployment to any static hosting service:
+
+```bash
+npm run build  # Build for production
+npm run preview  # Preview production build locally
+```
+
+### 🔗 Custom Domain Setup
+For detailed instructions on connecting your Hostinger domain to Netlify, see:
+
+**📖 [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md)**
+
+This guide covers:
+- Netlify deployment setup
+- Hostinger DNS configuration
+- SSL certificate setup
+- Troubleshooting common issues
+- Complete step-by-step instructions
 
 ## 🔗 GitHub Integration
 
@@ -88,27 +121,14 @@ https://github.com/MustafaPinjari/duplicate-bin/releases/latest/download/duplica
 
 ## 🎯 Key Features
 
-- **Responsive Design**: Works on all devices
+- **Fully Responsive**: Works perfectly on all devices (mobile, tablet, desktop)
 - **Dark Theme**: Professional dark mode throughout
+- **Custom Scrollbars**: Hidden scrollbars for clean UI
 - **Smooth Animations**: Custom CSS animations and transitions
 - **SEO Ready**: Proper meta tags and structure
 - **Accessibility**: WCAG compliant with proper focus states
 - **Performance**: Optimized with Vite and modern React patterns
-
-## 🚀 Deployment
-
-### Build for Production
-```bash
-npm run build
-```
-
-### Preview Production Build
-```bash
-npm run preview
-```
-
-### Deploy to Vercel/Netlify
-The project is ready for deployment to any static hosting service.
+- **Documentation System**: Complete docs with search and navigation
 
 ## 🔧 Customization
 
@@ -117,6 +137,11 @@ The project is ready for deployment to any static hosting service.
 - Update colors: `src/styles/globals.css`
 - Modify content: `src/pages/landing/` components
 
+### Documentation Content
+- Add new docs: `src/pages/docs/`
+- Update navigation: `src/pages/docs/components/docs-sidebar.tsx`
+- Customize styling: `src/styles/globals.css` (docs-content section)
+
 ### GitHub Release Integration
 Update the download URL in:
 - `src/pages/landing/download-cta-section.tsx`
@@ -124,18 +149,29 @@ Update the download URL in:
 
 ## 📱 Responsive Breakpoints
 
-- **Mobile**: < 768px
-- **Tablet**: 768px - 1024px
-- **Desktop**: > 1024px
-- **Large**: > 1280px
+- **Mobile**: < 640px
+- **Small**: 640px - 768px
+- **Medium**: 768px - 1024px
+- **Large**: 1024px - 1280px
+- **XL**: 1280px - 1536px
+- **2XL**: > 1536px
 
 ## 🎨 Design System
 
-- **Colors**: Black, grays, purple accents
-- **Typography**: Inter font family
-- **Spacing**: Consistent 8px grid system
-- **Animations**: 200-300ms transitions
+- **Colors**: Black, grays, blue accents
+- **Typography**: Inter font family with responsive scaling
+- **Spacing**: Consistent 4px/8px grid system
+- **Animations**: 200-300ms smooth transitions
 - **Borders**: Rounded corners throughout
+- **Scrollbars**: Custom styled or hidden for clean UI
+
+## 🚀 Performance Features
+
+- **Code Splitting**: Automatic route-based splitting
+- **Lazy Loading**: Components loaded on demand
+- **Optimized Images**: Proper sizing and formats
+- **Minimal Bundle**: Tree-shaking and dead code elimination
+- **Fast Builds**: Vite for lightning-fast development
 
 ## 📄 License
 
@@ -152,6 +188,14 @@ MIT License - see [LICENSE](LICENSE) file for details.
 ## 📞 Support
 
 For support, email support@duplicatebin.dev or join our Discord community.
+
+## 🔄 Recent Updates
+
+- ✅ Complete documentation system with responsive design
+- ✅ Fixed scrollbar issues with custom styling
+- ✅ Enhanced mobile navigation and responsiveness
+- ✅ Added comprehensive deployment guide
+- ✅ Improved accessibility and performance
 
 ---
 

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Plus, Minus } from 'lucide-react'
-import { cn } from '@/utils/cn'
+import { cn } from '../../utils/cn'
 
 interface FAQItem {
   question: string
@@ -45,16 +45,16 @@ const AccordionItem = ({ item, isOpen, onToggle }: AccordionItemProps) => {
     <div className="border-b border-gray-800 last:border-b-0">
       <button
         onClick={onToggle}
-        className="w-full flex items-center justify-between py-6 text-left hover:bg-gray-900/30 transition-colors duration-200 focus:outline-none focus:bg-gray-900/30 focus:ring-2 focus:ring-purple-500/20 rounded-lg px-2"
+        className="w-full flex items-center justify-between py-4 sm:py-6 text-left hover:bg-gray-900/30 transition-colors duration-200 focus:outline-none focus:bg-gray-900/30 focus:ring-2 focus:ring-purple-500/20 rounded-lg px-2"
         aria-expanded={isOpen}
       >
-        <span className="text-lg font-medium text-white pr-8 leading-relaxed">
+        <span className="text-base sm:text-lg font-medium text-white pr-6 sm:pr-8 leading-relaxed">
           {item.question}
         </span>
         
         <div className="flex-shrink-0 ml-4">
           <div className={cn(
-            "h-6 w-6 rounded-full border border-gray-600 flex items-center justify-center transition-all duration-200",
+            "h-5 w-5 sm:h-6 sm:w-6 rounded-full border border-gray-600 flex items-center justify-center transition-all duration-200",
             isOpen ? "bg-purple-600 border-purple-600 rotate-180" : "hover:border-gray-500"
           )}>
             {isOpen ? (
@@ -70,8 +70,8 @@ const AccordionItem = ({ item, isOpen, onToggle }: AccordionItemProps) => {
         "overflow-hidden transition-all duration-300 ease-in-out",
         isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
       )}>
-        <div className="pb-6 px-2">
-          <p className="text-gray-300 leading-relaxed text-base">
+        <div className="pb-4 sm:pb-6 px-2">
+          <p className="text-gray-300 leading-relaxed text-sm sm:text-base">
             {item.answer}
           </p>
         </div>
@@ -94,20 +94,20 @@ export function FAQSection() {
   }
 
   return (
-    <section className="relative py-32 bg-black">
+    <section className="relative py-16 sm:py-24 lg:py-32 bg-black">
       <div className="absolute inset-0 bg-black" />
       
-      <div className="relative container mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
         <div className="max-w-4xl mx-auto">
           {/* Section heading */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
               Common questions
             </h2>
           </div>
 
           {/* FAQ Accordion */}
-          <div className="bg-gray-950/50 border border-gray-800 rounded-2xl p-8 lg:p-12">
+          <div className="bg-gray-950/50 border border-gray-800 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 xl:p-12">
             <div className="space-y-0">
               {faqItems.map((item, index) => (
                 <AccordionItem
@@ -121,8 +121,8 @@ export function FAQSection() {
           </div>
 
           {/* Footer CTA */}
-          <div className="text-center mt-12">
-            <button className="inline-flex items-center px-8 py-4 bg-gray-900 hover:bg-gray-800 border border-gray-700 hover:border-gray-600 rounded-xl text-white font-medium transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500/20">
+          <div className="text-center mt-8 sm:mt-12">
+            <button className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-gray-900 hover:bg-gray-800 border border-gray-700 hover:border-gray-600 rounded-lg sm:rounded-xl text-white font-medium text-sm sm:text-base transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500/20">
               Browse all FAQs
             </button>
           </div>
@@ -130,7 +130,7 @@ export function FAQSection() {
       </div>
       
       {/* Subtle background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-gradient-to-r from-purple-500/5 via-blue-500/5 to-green-500/5 rounded-full blur-3xl opacity-60" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[600px] h-[200px] sm:h-[300px] bg-gradient-to-r from-purple-500/5 via-blue-500/5 to-green-500/5 rounded-full blur-3xl opacity-60" />
     </section>
   )
 }

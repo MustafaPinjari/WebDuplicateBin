@@ -234,3 +234,400 @@
     animation: spin-slow 8s linear infinite;
   }
 }
+
+/* Custom responsive utilities */
+@layer utilities {
+  .hover-lift {
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-2px);
+  }
+  
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+  }
+  
+  .animate-bounce-slow {
+    animation: bounce 2s infinite;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  /* Responsive text utilities */
+  .text-responsive-xs {
+    @apply text-xs sm:text-sm;
+  }
+  
+  .text-responsive-sm {
+    @apply text-sm sm:text-base;
+  }
+  
+  .text-responsive-base {
+    @apply text-base sm:text-lg;
+  }
+  
+  .text-responsive-lg {
+    @apply text-lg sm:text-xl;
+  }
+  
+  .text-responsive-xl {
+    @apply text-xl sm:text-2xl;
+  }
+  
+  /* Responsive spacing utilities */
+  .p-responsive {
+    @apply p-4 sm:p-6 lg:p-8;
+  }
+  
+  .px-responsive {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+  
+  .py-responsive {
+    @apply py-4 sm:py-6 lg:py-8;
+  }
+  
+  .m-responsive {
+    @apply m-4 sm:m-6 lg:m-8;
+  }
+  
+  .mb-responsive {
+    @apply mb-4 sm:mb-6 lg:mb-8;
+  }
+  
+  .mt-responsive {
+    @apply mt-4 sm:mt-6 lg:mt-8;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ensure proper mobile viewport */
+@media screen and (max-width: 640px) {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  body {
+    overflow-x: hidden;
+  }
+}
+
+/* Improve touch targets on mobile */
+@media (hover: none) and (pointer: coarse) {
+  button, a, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+/* Documentation-specific styles */
+.docs-content {
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+@media (max-width: 640px) {
+  .docs-content {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+}
+
+.docs-content h1 {
+  @apply text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 sm:mb-8 mt-12 sm:mt-16 first:mt-0;
+  scroll-margin-top: 6rem;
+  line-height: 1.1;
+}
+
+.docs-content h2 {
+  @apply text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6 mt-12 sm:mt-16 first:mt-0;
+  scroll-margin-top: 6rem;
+  line-height: 1.2;
+}
+
+.docs-content h3 {
+  @apply text-xl sm:text-2xl md:text-3xl font-semibold text-white mb-4 sm:mb-5 mt-8 sm:mt-12;
+  scroll-margin-top: 6rem;
+  line-height: 1.3;
+}
+
+.docs-content h4 {
+  @apply text-lg sm:text-xl md:text-2xl font-semibold text-white mb-3 sm:mb-4 mt-6 sm:mt-10;
+  scroll-margin-top: 6rem;
+  line-height: 1.4;
+}
+
+.docs-content h5 {
+  @apply text-base sm:text-lg md:text-xl font-semibold text-white mb-3 mt-6 sm:mt-8;
+  scroll-margin-top: 6rem;
+  line-height: 1.4;
+}
+
+.docs-content h6 {
+  @apply text-base sm:text-lg font-semibold text-white mb-3 mt-4 sm:mt-6;
+  scroll-margin-top: 6rem;
+  line-height: 1.4;
+}
+
+.docs-content p {
+  @apply text-gray-300 mb-4 sm:mb-6 leading-relaxed text-base sm:text-lg;
+}
+
+.docs-content ul {
+  @apply text-gray-300 mb-4 sm:mb-6 pl-6 sm:pl-8 space-y-2 sm:space-y-3 text-base sm:text-lg;
+}
+
+.docs-content ol {
+  @apply text-gray-300 mb-4 sm:mb-6 pl-6 sm:pl-8 space-y-2 sm:space-y-3 text-base sm:text-lg;
+}
+
+.docs-content li {
+  @apply leading-relaxed;
+}
+
+.docs-content ul li {
+  @apply relative;
+}
+
+.docs-content ul li::before {
+  content: "•";
+  @apply absolute -left-4 sm:-left-6 text-gray-500 text-lg sm:text-xl;
+}
+
+.docs-content ol {
+  counter-reset: item;
+}
+
+.docs-content ol li {
+  @apply relative;
+  counter-increment: item;
+}
+
+.docs-content ol li::before {
+  content: counter(item) ".";
+  @apply absolute -left-6 sm:-left-8 text-gray-500 font-semibold text-base sm:text-lg;
+}
+
+.docs-content a {
+  @apply text-blue-400 hover:text-blue-300 transition-colors underline decoration-blue-400/40 hover:decoration-blue-300/60 underline-offset-2;
+}
+
+.docs-content code {
+  @apply bg-gray-800/60 text-gray-100 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md sm:rounded-lg text-sm sm:text-base font-mono border border-gray-700/50;
+}
+
+.docs-content pre code {
+  @apply bg-transparent p-0 border-none;
+}
+
+.docs-content blockquote {
+  @apply border-l-4 border-gray-600 pl-4 sm:pl-6 italic text-gray-400 my-6 sm:my-8 text-base sm:text-lg bg-gray-900/30 py-3 sm:py-4 rounded-r-lg sm:rounded-r-xl;
+}
+
+.docs-content table {
+  @apply w-full border-collapse border border-gray-800/50 my-6 sm:my-8 rounded-lg sm:rounded-xl overflow-hidden bg-gray-900/30;
+}
+
+.docs-content th {
+  @apply bg-gray-800/50 text-white font-semibold p-3 sm:p-4 text-left border border-gray-700/50 text-sm sm:text-base;
+}
+
+.docs-content td {
+  @apply p-3 sm:p-4 border border-gray-700/50 text-gray-300 text-sm sm:text-base;
+}
+
+.docs-content hr {
+  @apply border-gray-800/50 my-8 sm:my-12;
+}
+
+/* Enhanced focus styles for accessibility */
+.docs-content a:focus,
+.docs-content button:focus {
+  @apply outline-none ring-2 ring-blue-500/50 ring-offset-2 ring-offset-black rounded-lg;
+}
+
+/* Improved spacing for nested elements */
+.docs-content ul ul,
+.docs-content ol ol,
+.docs-content ul ol,
+.docs-content ol ul {
+  @apply mt-2 sm:mt-3 mb-0;
+}
+
+/* Better styling for inline elements */
+.docs-content strong {
+  @apply text-white font-semibold;
+}
+
+.docs-content em {
+  @apply text-gray-200 italic;
+}
+
+/* Enhanced code block styling */
+.docs-content pre {
+  @apply relative;
+}
+
+.docs-content pre:hover .copy-button {
+  @apply opacity-100;
+}
+
+.copy-button {
+  @apply opacity-0 transition-opacity duration-200;
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Print styles */
+@media print {
+  .docs-content {
+    @apply text-black;
+  }
+  
+  .docs-content h1,
+  .docs-content h2,
+  .docs-content h3,
+  .docs-content h4,
+  .docs-content h5,
+  .docs-content h6 {
+    @apply text-black;
+  }
+  
+  .docs-content code {
+    @apply bg-gray-100 text-black;
+  }
+}
+
+/* Custom Scrollbar Styles - Dark Theme */
+/* Option 1: Completely hidden scrollbars (current) */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
+}
+
+/* Option 2: Custom styled scrollbars (alternative) */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(75, 85, 99, 0.3) transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(75, 85, 99, 0.3);
+  border-radius: 3px;
+  transition: all 0.2s ease;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(75, 85, 99, 0.6);
+}
+
+.custom-scrollbar::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Global scrollbar styling for consistency */
+/* Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(17, 24, 39, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(75, 85, 99, 0.4);
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(75, 85, 99, 0.7);
+}
+
+::-webkit-scrollbar-corner {
+  background: rgba(17, 24, 39, 0.3);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(75, 85, 99, 0.4) rgba(17, 24, 39, 0.3);
+}
+
+/* Docs specific scrollbar styling */
+.docs-sidebar-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(55, 65, 81, 0.4) transparent;
+}
+
+.docs-sidebar-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.docs-sidebar-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.docs-sidebar-scroll::-webkit-scrollbar-thumb {
+  background: rgba(55, 65, 81, 0.4);
+  border-radius: 2px;
+}
+
+.docs-sidebar-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(55, 65, 81, 0.7);
+}
+
+.docs-content-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(75, 85, 99, 0.3) transparent;
+}
+
+.docs-content-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.docs-content-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.docs-content-scroll::-webkit-scrollbar-thumb {
+  background: rgba(75, 85, 99, 0.3);
+  border-radius: 3px;
+}
+
+.docs-content-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(75, 85, 99, 0.6);
+}
