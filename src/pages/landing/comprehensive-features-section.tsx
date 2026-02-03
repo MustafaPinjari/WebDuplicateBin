@@ -46,7 +46,7 @@ export function ComprehensiveFeaturesSection() {
   ]
 
   return (
-    <section className="relative py-16 sm:py-24 lg:py-32 bg-black overflow-hidden">
+    <section id="comprehensive-features" className="relative py-16 sm:py-24 lg:py-32 bg-black overflow-hidden">
       <div className="absolute inset-0 bg-black" />
       
       {/* Animated background elements */}

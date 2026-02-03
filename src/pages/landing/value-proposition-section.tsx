@@ -1,6 +1,6 @@
 export function ValuePropositionSection() {
   return (
-    <section className="relative py-16 sm:py-24 lg:py-32 bg-black">
+    <section id="value-proposition" className="relative py-16 sm:py-24 lg:py-32 bg-black">
       <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-950 to-black" />
       
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">

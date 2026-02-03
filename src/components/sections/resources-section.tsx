@@ -255,7 +255,7 @@ export function ResourcesSection() {
                     label="COMMUNITY"
                     title="Join the community"
                     description="Connect with other users of Duplicate Bin, ask questions, share workflows, and get help from experienced developers and maintainers. Join 2,500+ active members."
-                    href="https://github.com/duplicate-bin/community"
+                    href="https://github.com/MustafaPinjari/duplicate-bin/community"
                     isPrimary={false}
                     icon={<Users className="h-7 w-7" />}
                     external={true}
@@ -282,7 +282,7 @@ export function ResourcesSection() {
                       </a>
                       
                       <a 
-                        href="https://github.com/duplicate-bin" 
+                        href="https://github.com/MustafaPinjari/duplicate-bin" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="flex items-center text-gray-400 hover:text-white transition-all duration-300 group hover:scale-105"

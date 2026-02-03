@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
 import { Button } from '../ui/button'
-import { Search, ChevronDown, Menu, X, Home, FileText, Download, LogIn, ExternalLink } from 'lucide-react'
+import { Search, Menu, X, Home, FileText, Download, LogIn, ExternalLink } from 'lucide-react'
 import { useAuthStore } from '../../store/auth'
 import { UserDropdown } from './user-dropdown'
 import { useState, useEffect } from 'react'
@@ -48,6 +48,31 @@ export function Navbar() {
     setIsMobileMenuOpen(false)
   }
 
+  // Handle hash navigation on page load
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.substring(1)
+      if (hash) {
+        setTimeout(() => {
+          const element = document.getElementById(hash)
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' })
+          }
+        }, 100) // Small delay to ensure DOM is ready
+      }
+    }
+
+    // Handle initial hash on page load
+    handleHashChange()
+    
+    // Listen for hash changes
+    window.addEventListener('hashchange', handleHashChange)
+    
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange)
+    }
+  }, [location.pathname])
+
   return (
     <>
       <nav className="sticky top-0 z-50 w-full bg-transparent py-3 sm:py-4">
@@ -79,25 +104,18 @@ export function Navbar() {
               </Link>
               
               <button 
-                onClick={() => handleNavClick('features')}
+                onClick={() => handleNavClick('comprehensive-features')}
                 className="text-sm font-medium text-gray-300 hover:text-white transition-colors duration-200 px-2 py-1"
               >
                 Features
               </button>
               
-              <button 
-                onClick={() => handleNavClick('comprehensive-features')}
+              <Link 
+                to="/enterprise"
                 className="text-sm font-medium text-gray-300 hover:text-white transition-colors duration-200 px-2 py-1"
               >
                 Enterprise
-              </button>
-              
-              <button 
-                onClick={() => handleNavClick('download')}
-                className="text-sm font-medium text-gray-300 hover:text-white transition-colors duration-200 px-2 py-1"
-              >
-                Pricing
-              </button>
+              </Link>
               
               <Link 
                 to="/docs" 
@@ -106,37 +124,19 @@ export function Navbar() {
                 Docs
               </Link>
               
-              {/* Resources Dropdown */}
-              <div className="relative group">
-                <button className="flex items-center text-sm font-medium text-gray-300 hover:text-white transition-colors duration-200 px-2 py-1">
-                  Resources
-                  <ChevronDown className="ml-1 h-3 w-3 transition-transform duration-200 group-hover:rotate-180" />
-                </button>
-                
-                {/* Dropdown Menu */}
-                <div className="absolute top-full left-0 mt-3 w-52 bg-gray-900/95 backdrop-blur-md border border-gray-700 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-1 group-hover:translate-y-0">
-                  <div className="py-3">
-                    <Link to="/docs" className="block px-5 py-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition-colors">
-                      Documentation
-                    </Link>
-                    <button 
-                      onClick={() => handleNavClick('faq')}
-                      className="block w-full text-left px-5 py-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition-colors"
-                    >
-                      FAQ
-                    </button>
-                    <a href="https://github.com/duplicate-bin" target="_blank" rel="noopener noreferrer" className="block px-5 py-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition-colors">
-                      GitHub
-                    </a>
-                    <button 
-                      onClick={() => handleNavClick('testimonials')}
-                      className="block w-full text-left px-5 py-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition-colors"
-                    >
-                      Community
-                    </button>
-                  </div>
-                </div>
-              </div>
+              <Link 
+                to="/github"
+                className="text-sm font-medium text-gray-300 hover:text-white transition-colors duration-200 px-2 py-1"
+              >
+                GitHub
+              </Link>
+              
+              <Link 
+                to="/community"
+                className="text-sm font-medium text-gray-300 hover:text-white transition-colors duration-200 px-2 py-1"
+              >
+                Community
+              </Link>
             </div>
             
             {/* Right Section - Actions */}
@@ -256,36 +256,21 @@ export function Navbar() {
                 </Link>
                 
                 <button 
-                  onClick={() => handleNavClick('cli-installation')}
-                  className="flex items-center w-full px-3 py-2.5 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md transition-all duration-200 group"
-                >
-                  <FileText className="h-4 w-4 mr-3 text-gray-500 group-hover:text-gray-400 transition-colors" />
-                  CLI Installation
-                </button>
-                
-                <button 
-                  onClick={() => handleNavClick('features')}
+                  onClick={() => handleNavClick('comprehensive-features')}
                   className="flex items-center w-full px-3 py-2.5 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md transition-all duration-200 group"
                 >
                   <FileText className="h-4 w-4 mr-3 text-gray-500 group-hover:text-gray-400 transition-colors" />
                   Features
                 </button>
                 
-                <button 
-                  onClick={() => handleNavClick('comprehensive-features')}
+                <Link 
+                  to="/enterprise"
                   className="flex items-center w-full px-3 py-2.5 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md transition-all duration-200 group"
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   <ExternalLink className="h-4 w-4 mr-3 text-gray-500 group-hover:text-gray-400 transition-colors" />
                   Enterprise
-                </button>
-                
-                <button 
-                  onClick={() => handleNavClick('download')}
-                  className="flex items-center w-full px-3 py-2.5 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md transition-all duration-200 group"
-                >
-                  <Download className="h-4 w-4 mr-3 text-gray-500 group-hover:text-gray-400 transition-colors" />
-                  Pricing
-                </button>
+                </Link>
                 
                 <Link 
                   to="/docs" 
@@ -296,33 +281,23 @@ export function Navbar() {
                   Documentation
                 </Link>
 
-                {/* Resources Section */}
-                <div className="pt-4">
-                  <div className="px-3 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider">Resources</div>
-                  <div className="space-y-1">
-                    <button 
-                      onClick={() => handleNavClick('faq')}
-                      className="flex items-center w-full px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-gray-800 rounded-md transition-all duration-200"
-                    >
-                      FAQ
-                    </button>
-                    <a 
-                      href="https://github.com/duplicate-bin" 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="flex items-center w-full px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-gray-800 rounded-md transition-all duration-200"
-                    >
-                      GitHub
-                      <ExternalLink className="h-3 w-3 ml-2" />
-                    </a>
-                    <button 
-                      onClick={() => handleNavClick('testimonials')}
-                      className="flex items-center w-full px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-gray-800 rounded-md transition-all duration-200"
-                    >
-                      Community
-                    </button>
-                  </div>
-                </div>
+                <Link 
+                  to="/github"
+                  className="flex items-center w-full px-3 py-2.5 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md transition-all duration-200 group"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <ExternalLink className="h-4 w-4 mr-3 text-gray-500 group-hover:text-gray-400 transition-colors" />
+                  GitHub
+                </Link>
+
+                <Link 
+                  to="/community"
+                  className="flex items-center w-full px-3 py-2.5 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md transition-all duration-200 group"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <ExternalLink className="h-4 w-4 mr-3 text-gray-500 group-hover:text-gray-400 transition-colors" />
+                  Community
+                </Link>
               </div>
 
               {/* Bottom Actions */}

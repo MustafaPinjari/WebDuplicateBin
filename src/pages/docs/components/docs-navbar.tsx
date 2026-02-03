@@ -89,7 +89,7 @@ export function DocsNavbar() {
                   >
                     FAQ
                   </button>
-                  <a href="https://github.com/duplicate-bin" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800 transition-colors">
+                  <a href="https://github.com/MustafaPinjari/duplicate-bin" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800 transition-colors">
                     GitHub
                   </a>
                   <button 

@@ -58,13 +58,8 @@ export function DocsLayout() {
           </div>
 
           {/* Right Sidebar - Table of Contents - Fixed */}
-          <aside className="hidden xl:block w-80 flex-shrink-0">
+          <aside className="hidden xl:block w-80 flex-shrink-0 border-l border-gray-800/50">
             <div className="sticky top-28 h-[calc(100vh-10rem)] overflow-y-auto hide-scrollbar px-6 py-8">
-              <DocsTableOfContents />
-            </div>
-          </aside>
-          <aside className="hidden xl:block w-72 border-l border-gray-800/50 flex-shrink-0">
-            <div className="h-full overflow-y-auto hide-scrollbar px-6 py-8">
               <DocsTableOfContents />
             </div>
           </aside>

@@ -494,6 +494,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Scroll offset for anchor links to account for sticky navbar */
+section[id] {
+  scroll-margin-top: 80px;
+}
+
 /* Print styles */
 @media print {
   .docs-content {

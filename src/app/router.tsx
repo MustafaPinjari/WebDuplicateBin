@@ -16,6 +16,19 @@ import { DocsScanningEnginePage } from '../pages/docs/scanning-engine'
 import { DocsDuplicateDetectionPage } from '../pages/docs/duplicate-detection'
 import { DocsArchiveWorkflowPage } from '../pages/docs/archive-workflow'
 import { DocsFiltersRulesPage } from '../pages/docs/filters-rules'
+import { PerformanceTuningPage } from '../pages/docs/advanced/performance'
+import { LargeFileSystemsPage } from '../pages/docs/advanced/large-systems'
+import { NetworkScanningPage } from '../pages/docs/advanced/network-scanning'
+import { RestApiPage } from '../pages/docs/api/rest'
+import { WebhooksPage } from '../pages/docs/api/webhooks'
+import { DatabaseBackendsPage } from '../pages/docs/api/databases'
+import { SystemProtectionPage } from '../pages/docs/security/protection'
+import { RollbackRecoveryPage } from '../pages/docs/security/recovery'
+import { PermissionsModelPage } from '../pages/docs/security/permissions'
+import { CommonWorkflowsPage, BestPracticesPage, TroubleshootingPage, PrivacyDataHandlingPage } from '../pages/docs/guides'
+import { EnterprisePage } from '../pages/enterprise/enterprise-page'
+import { GitHubPage } from '../pages/github/github-page'
+import { CommunityPage } from '../pages/community/community-page'
 import { CLIPage } from '../pages/cli/cli-page'
 
 export const router = createBrowserRouter([
@@ -42,6 +55,18 @@ export const router = createBrowserRouter([
   {
     path: '/cli',
     element: <CLIPage />,
+  },
+  {
+    path: '/enterprise',
+    element: <EnterprisePage />,
+  },
+  {
+    path: '/github',
+    element: <GitHubPage />,
+  },
+  {
+    path: '/community',
+    element: <CommunityPage />,
   },
   {
     path: '/docs',
@@ -79,58 +104,61 @@ export const router = createBrowserRouter([
         path: 'filters-rules',
         element: <DocsFiltersRulesPage />,
       },
-      // Placeholder routes for remaining pages
+      // Advanced Usage Pages
       {
         path: 'advanced/performance',
-        element: <div className="p-8 text-center text-gray-400">Performance Tuning documentation coming soon...</div>,
+        element: <PerformanceTuningPage />,
       },
       {
         path: 'advanced/large-systems',
-        element: <div className="p-8 text-center text-gray-400">Large File Systems documentation coming soon...</div>,
+        element: <LargeFileSystemsPage />,
       },
       {
         path: 'advanced/network-scanning',
-        element: <div className="p-8 text-center text-gray-400">Network Scanning documentation coming soon...</div>,
+        element: <NetworkScanningPage />,
       },
+      // API & Integrations Pages
       {
         path: 'api/rest',
-        element: <div className="p-8 text-center text-gray-400">REST API documentation coming soon...</div>,
+        element: <RestApiPage />,
       },
       {
         path: 'api/webhooks',
-        element: <div className="p-8 text-center text-gray-400">Webhooks documentation coming soon...</div>,
+        element: <WebhooksPage />,
       },
       {
         path: 'api/databases',
-        element: <div className="p-8 text-center text-gray-400">Database Backends documentation coming soon...</div>,
+        element: <DatabaseBackendsPage />,
       },
+      // Security & Safety Pages
       {
         path: 'security/protection',
-        element: <div className="p-8 text-center text-gray-400">System Protection documentation coming soon...</div>,
+        element: <SystemProtectionPage />,
       },
       {
         path: 'security/recovery',
-        element: <div className="p-8 text-center text-gray-400">Rollback & Recovery documentation coming soon...</div>,
+        element: <RollbackRecoveryPage />,
       },
       {
         path: 'security/permissions',
-        element: <div className="p-8 text-center text-gray-400">Permissions Model documentation coming soon...</div>,
+        element: <PermissionsModelPage />,
       },
+      // Guides Pages
       {
         path: 'guides/workflows',
-        element: <div className="p-8 text-center text-gray-400">Common Workflows documentation coming soon...</div>,
+        element: <CommonWorkflowsPage />,
       },
       {
         path: 'guides/best-practices',
-        element: <div className="p-8 text-center text-gray-400">Best Practices documentation coming soon...</div>,
+        element: <BestPracticesPage />,
       },
       {
         path: 'guides/troubleshooting',
-        element: <div className="p-8 text-center text-gray-400">Troubleshooting documentation coming soon...</div>,
+        element: <TroubleshootingPage />,
       },
       {
         path: 'guides/privacy',
-        element: <div className="p-8 text-center text-gray-400">Privacy & Data Handling documentation coming soon...</div>,
+        element: <PrivacyDataHandlingPage />,
       },
     ],
   },
