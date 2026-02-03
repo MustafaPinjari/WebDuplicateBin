@@ -23,108 +23,91 @@ export function DownloadCTASection() {
   }
 
   return (
-    <section className="relative py-40 bg-black">
-      <div className="absolute inset-0 bg-black" />
+    <section className="relative py-16 sm:py-20 lg:py-24 bg-black">
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.15) 1px, transparent 0)`,
+          backgroundSize: '32px 32px'
+        }} />
+      </div>
       
-      <div className="relative container mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="max-w-[1600px] mx-auto">
-          {/* Much wider rounded container with bright accent background */}
-          <div className="relative overflow-hidden rounded-[4rem] bg-gradient-to-br from-purple-600 via-purple-700 to-purple-800 p-16 lg:p-24">
-            {/* Enhanced background effects */}
+      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          {/* Main content card */}
+          <div className="group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-gradient-to-br from-purple-600 via-purple-700 to-purple-800 transition-all duration-500 hover:scale-110 cursor-pointer">
+            {/* Subtle gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-br from-purple-500/30 to-transparent" />
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/5 rounded-full blur-3xl animate-pulse-slow" />
-            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-purple-400/10 rounded-full blur-3xl animate-pulse-slow" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-purple-500/10 via-blue-500/10 to-green-500/10 rounded-full blur-3xl animate-pulse-slow" />
             
-            <div className="relative z-10 text-center">
-              {/* Main heading - Bigger */}
-              <h2 className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl 2xl:text-[10rem] font-bold tracking-tight text-white leading-[0.85] mb-8">
+            <div className="relative px-6 sm:px-8 lg:px-12 py-12 sm:py-16 lg:py-20 text-center">
+              {/* Main heading */}
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight">
                 Clean duplicate files{' '}
-                <br className="hidden sm:block" />
-                <span className="text-purple-100">safely in minutes</span>
+                <span className="block sm:inline text-purple-100">safely in minutes</span>
               </h2>
               
               {/* Subheading */}
-              <p className="text-2xl sm:text-3xl text-purple-100 font-medium mb-16">
-                Get started for free
+              <p className="text-lg sm:text-xl text-purple-100 mb-8 sm:mb-12 max-w-2xl mx-auto">
+                Get started for free with our Linux-native duplicate file cleaner
               </p>
               
-              {/* Primary download button with Linux icon */}
-              <div className="flex flex-col items-center space-y-8">
+              {/* Download button */}
+              <div className="flex flex-col items-center space-y-6">
                 <button
                   onClick={handleDownload}
-                  className="group relative inline-flex items-center px-16 py-8 bg-white text-purple-700 font-bold text-2xl rounded-3xl hover:bg-gray-100 transition-all duration-300 hover:scale-105 hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-white/30 active:scale-95"
+                  className="group relative inline-flex items-center px-8 sm:px-10 lg:px-12 py-4 sm:py-5 bg-white text-purple-700 hover:text-purple-800 font-semibold text-lg sm:text-xl rounded-xl sm:rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-white/25 focus:outline-none focus:ring-4 focus:ring-white/50"
                 >
-                  {/* Tux penguin icon */}
-                  <div className="mr-5 h-10 w-10 flex items-center justify-center">
+                  {/* Linux icon */}
+                  <div className="mr-3 sm:mr-4 h-6 w-6 sm:h-7 sm:w-7 flex items-center justify-center">
                     <img 
                       src="/images/tux-penguin.png" 
-                      alt="Linux Tux Penguin" 
-                      className="h-10 w-10 object-contain"
+                      alt="Linux" 
+                      className="h-full w-full object-contain"
                     />
                   </div>
                   <span>Download for Linux</span>
-                  <Download className="ml-5 h-7 w-7 group-hover:translate-y-1 transition-transform duration-300" />
-                  
-                  {/* Enhanced glow effect */}
-                  <div className="absolute inset-0 rounded-3xl bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl -z-10" />
+                  <Download className="ml-3 sm:ml-4 h-5 w-5 sm:h-6 sm:w-6 transition-transform duration-300 group-hover:translate-y-0.5" />
                 </button>
                 
                 {/* Download info */}
-                <div className="text-purple-200 text-lg font-medium">
-                  <span className="inline-flex items-center">
-                    <span className="w-3 h-3 bg-green-400 rounded-full mr-3 animate-pulse"></span>
-                    Latest version • .deb package • AMD64
-                  </span>
-                </div>
-              </div>
-              
-              {/* App logo with animations */}
-              <div className="mt-20 flex justify-center">
-                <div className="relative">
-                  {/* Large app logo container */}
-                  <div className="w-40 h-40 lg:w-48 lg:h-48 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center p-8 animate-bounce-slow">
-                    <img 
-                      src="/images/logo.png" 
-                      alt="DuplicateBin Logo" 
-                      className="h-full w-full object-contain animate-pulse-slow"
-                    />
+                <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-sm text-purple-200">
+                  <div className="flex items-center">
+                    <div className="w-2 h-2 bg-green-400 rounded-full mr-2" />
+                    <span>Latest version</span>
                   </div>
-                  
-                  {/* Floating animated elements around logo */}
-                  <div className="absolute -top-4 -right-4 w-8 h-8 bg-yellow-400 rounded-full animate-bounce opacity-80"></div>
-                  <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-green-400 rounded-full animate-pulse opacity-80"></div>
-                  <div className="absolute top-1/2 -left-8 w-4 h-4 bg-blue-400 rounded-full animate-ping opacity-60"></div>
-                  <div className="absolute top-1/2 -right-8 w-5 h-5 bg-purple-400 rounded-full animate-bounce opacity-70"></div>
-                  
-                  {/* Rotating ring around logo */}
-                  <div className="absolute inset-0 rounded-full border-2 border-dashed border-white/20 animate-spin-slow"></div>
+                  <div className="hidden sm:block w-1 h-1 bg-purple-300 rounded-full" />
+                  <span>.deb package</span>
+                  <div className="hidden sm:block w-1 h-1 bg-purple-300 rounded-full" />
+                  <span>AMD64</span>
                 </div>
               </div>
             </div>
-            
-            {/* Enhanced floating elements */}
-            <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-white/40 rounded-full animate-ping"></div>
-            <div className="absolute top-3/4 right-1/4 w-2 h-2 bg-purple-300/60 rounded-full animate-pulse"></div>
-            <div className="absolute bottom-1/4 left-1/3 w-2.5 h-2.5 bg-white/30 rounded-full animate-bounce"></div>
-            <div className="absolute top-1/3 right-1/3 w-1.5 h-1.5 bg-yellow-400/50 rounded-full animate-ping"></div>
           </div>
           
-          {/* Trust indicators below the CTA */}
-          <div className="mt-16 text-center">
-            <div className="flex flex-wrap justify-center items-center gap-12 text-gray-500 text-base">
-              <div className="flex items-center">
-                <span className="w-3 h-3 bg-green-500 rounded-full mr-3 animate-pulse"></span>
-                <span>Archive-First Safety</span>
+          {/* Features grid */}
+          <div className="mt-12 sm:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
+            <div className="text-center p-6 rounded-xl bg-white/5 border border-white/10">
+              <div className="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <div className="w-6 h-6 bg-green-400 rounded-full" />
               </div>
-              <div className="flex items-center">
-                <span className="w-3 h-3 bg-blue-500 rounded-full mr-3 animate-pulse"></span>
-                <span>Linux Native</span>
+              <h3 className="text-white font-semibold mb-2">Archive-First Safety</h3>
+              <p className="text-gray-400 text-sm">Files are archived before deletion for maximum safety</p>
+            </div>
+            
+            <div className="text-center p-6 rounded-xl bg-white/5 border border-white/10">
+              <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <div className="w-6 h-6 bg-blue-400 rounded-full" />
               </div>
-              <div className="flex items-center">
-                <span className="w-3 h-3 bg-purple-500 rounded-full mr-3 animate-pulse"></span>
-                <span>No Registration Required</span>
+              <h3 className="text-white font-semibold mb-2">Linux Native</h3>
+              <p className="text-gray-400 text-sm">Built specifically for Linux systems and workflows</p>
+            </div>
+            
+            <div className="text-center p-6 rounded-xl bg-white/5 border border-white/10">
+              <div className="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <div className="w-6 h-6 bg-purple-400 rounded-full" />
               </div>
+              <h3 className="text-white font-semibold mb-2">No Registration</h3>
+              <p className="text-gray-400 text-sm">Download and use immediately without any signup</p>
             </div>
           </div>
         </div>
