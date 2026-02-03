@@ -11,9 +11,9 @@ export function HeroSection() {
       <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 pt-20 sm:pt-32 pb-12 sm:pb-20">
         <div className="mx-auto max-w-[1800px]">
           {/* Top Badge */}
-          <div className="mb-8 sm:mb-16">
-            <div className="inline-flex items-center rounded-full bg-gray-900/50 border border-gray-800 px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 text-sm sm:text-base lg:text-lg text-gray-300">
-              <span className="mr-2 sm:mr-3 lg:mr-4 h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-green-500"></span>
+          <div className="mb-6 sm:mb-12">
+            <div className="inline-flex items-center rounded-full bg-gray-900/50 border border-gray-800 px-3 sm:px-4 lg:px-6 py-1.5 sm:py-2 lg:py-3 text-xs sm:text-sm lg:text-base text-gray-300">
+              <span className="mr-2 sm:mr-2.5 lg:mr-3 h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-green-500"></span>
               <span className="hidden sm:inline">New: Safe duplicate cleanup with archive-first protection</span>
               <span className="sm:hidden">Archive-first protection</span>
             </div>
@@ -21,48 +21,48 @@ export function HeroSection() {
           
           {/* Main Content - Responsive layout */}
           <div className="text-left">
-            <h1 className="text-3xl sm:text-6xl md:text-5xl lg:text-8xl xl:text-[8rem] 2xl:text-[11rem] font-bold tracking-tight text-white leading-tight sm:leading-[0.9] md:leading-[0.85] lg:leading-[0.8] xl:leading-[0.75] 2xl:leading-[0.7] max-w-none">
+            <h1 className="text-3xl sm:text-6xl md:text-7xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold tracking-tight text-white leading-tight sm:leading-[0.9] md:leading-[0.85] lg:leading-[0.8] xl:leading-[0.75] 2xl:leading-[0.7] max-w-none">
               Smart duplicate file cleanup<br />
               <span className="text-gray-300">from scan to safe removal</span>
             </h1>
             
-            <div className="mt-8 sm:mt-12 lg:mt-16 max-w-4xl lg:max-w-7xl">
-              <p className="text-lg sm:text-xl lg:text-2xl xl:text-3xl leading-relaxed text-gray-400 font-light">
+            <div className="mt-6 sm:mt-8 lg:mt-12 max-w-3xl lg:max-w-5xl">
+              <p className="text-base sm:text-lg lg:text-xl xl:text-2xl leading-relaxed text-gray-400 font-light">
                 DuplicateBin helps you reclaim disk space safely by detecting duplicate files and moving them to a protected archive before deletion — no accidental data loss, ever.
               </p>
             </div>
             
             {/* Action Buttons */}
-            <div className="mt-12 sm:mt-16 lg:mt-20 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 lg:gap-10">
-              <Button size="lg" asChild className="w-full sm:w-auto hover-lift bg-white text-black hover:bg-gray-200 rounded-xl lg:rounded-2xl px-6 sm:px-8 lg:px-12 xl:px-16 py-3 sm:py-4 lg:py-6 xl:py-8 text-base sm:text-lg lg:text-xl xl:text-2xl font-semibold">
+            <div className="mt-8 sm:mt-12 lg:mt-16 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 lg:gap-6">
+              <Button size="lg" asChild className="w-full sm:w-auto hover-lift bg-white text-black hover:bg-gray-200 rounded-lg lg:rounded-xl px-4 sm:px-6 lg:px-8 xl:px-10 py-2.5 sm:py-3 lg:py-4 xl:py-5 text-sm sm:text-base lg:text-lg xl:text-xl font-semibold">
                 <Link to="/auth/register" className="flex items-center justify-center">
                   Start Free Scan
-                  <ArrowRight className="ml-2 sm:ml-3 lg:ml-4 h-5 w-5 sm:h-6 sm:w-6 lg:h-7 lg:w-7" />
+                  <ArrowRight className="ml-2 sm:ml-2.5 lg:ml-3 h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6" />
                 </Link>
               </Button>
               
-              <Button variant="outline" size="lg" className="w-full sm:w-auto hover-lift border-gray-700 text-gray-300 hover:bg-gray-900 hover:text-white rounded-xl lg:rounded-2xl px-6 sm:px-8 lg:px-12 xl:px-16 py-3 sm:py-4 lg:py-6 xl:py-8 text-base sm:text-lg lg:text-xl xl:text-2xl font-semibold">
-                <Play className="mr-2 sm:mr-3 lg:mr-4 h-5 w-5 sm:h-6 sm:w-6 lg:h-7 lg:w-7" />
+              <Button variant="outline" size="lg" className="w-full sm:w-auto hover-lift border-gray-700 text-gray-300 hover:bg-gray-900 hover:text-white rounded-lg lg:rounded-xl px-4 sm:px-6 lg:px-8 xl:px-10 py-2.5 sm:py-3 lg:py-4 xl:py-5 text-sm sm:text-base lg:text-lg xl:text-xl font-semibold">
+                <Play className="mr-2 sm:mr-2.5 lg:mr-3 h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6" />
                 Watch Demo
               </Button>
             </div>
             
             {/* Supporting Points - Responsive grid */}
-            <div className="mt-12 sm:mt-16 lg:mt-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 xl:gap-16 text-sm sm:text-base lg:text-lg text-gray-500">
+            <div className="mt-8 sm:mt-12 lg:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 xl:gap-10 text-xs sm:text-sm lg:text-base text-gray-500">
               <div className="flex items-center">
-                <Shield className="mr-3 sm:mr-4 lg:mr-5 h-5 w-5 sm:h-6 sm:w-6 lg:h-7 lg:w-7 text-green-500 flex-shrink-0" />
+                <Shield className="mr-2 sm:mr-3 lg:mr-4 h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-green-500 flex-shrink-0" />
                 <span>System-safe (critical directories protected)</span>
               </div>
               <div className="flex items-center">
-                <Zap className="mr-3 sm:mr-4 lg:mr-5 h-5 w-5 sm:h-6 sm:w-6 lg:h-7 lg:w-7 text-blue-500 flex-shrink-0" />
+                <Zap className="mr-2 sm:mr-3 lg:mr-4 h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-blue-500 flex-shrink-0" />
                 <span>Fast SHA-256 duplicate detection</span>
               </div>
               <div className="flex items-center">
-                <HardDrive className="mr-3 sm:mr-4 lg:mr-5 h-5 w-5 sm:h-6 sm:w-6 lg:h-7 lg:w-7 text-purple-500 flex-shrink-0" />
+                <HardDrive className="mr-2 sm:mr-3 lg:mr-4 h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-purple-500 flex-shrink-0" />
                 <span>Linux-first and privacy-friendly</span>
               </div>
               <div className="flex items-center">
-                <Archive className="mr-3 sm:mr-4 lg:mr-5 h-5 w-5 sm:h-6 sm:w-6 lg:h-7 lg:w-7 text-orange-500 flex-shrink-0" />
+                <Archive className="mr-2 sm:mr-3 lg:mr-4 h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-orange-500 flex-shrink-0" />
                 <span>Archive before delete, not auto-delete</span>
               </div>
             </div>

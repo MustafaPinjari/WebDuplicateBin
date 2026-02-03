@@ -50,67 +50,67 @@ export function Navbar() {
 
   return (
     <>
-      <nav className="sticky top-0 z-50 w-full bg-transparent py-4 sm:py-6">
-        <div className="mx-auto max-w-[127.4rem] px-6 sm:px-8">
-          <div className="flex h-20 items-center justify-between bg-black/20 backdrop-blur-xl border border-gray-700/30 rounded-2xl px-8 shadow-2xl shadow-black/20">
+      <nav className="sticky top-0 z-50 w-full bg-transparent py-3 sm:py-4">
+        <div className="mx-auto max-w-[70.2rem] px-6 sm:px-8">
+          <div className="flex h-14 items-center justify-between bg-black/20 backdrop-blur-xl border border-gray-700/30 rounded-2xl px-5 shadow-2xl shadow-black/20">
             {/* Left Section - Brand */}
             <div className="flex items-center">
-              <Link to="/" className="flex items-center space-x-3 group">
+              <Link to="/" className="flex items-center space-x-2 group">
                 <img 
                   src="/images/logo.png" 
                   alt="DuplicateBin Logo" 
-                  className="h-8 w-8 object-contain transition-all duration-200 group-hover:opacity-80 group-hover:scale-105"
+                  className="h-5 w-5 object-contain transition-all duration-200 group-hover:opacity-80 group-hover:scale-105"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
                     target.style.display = 'none';
                   }}
                 />
-                <span className="font-semibold text-white text-xl tracking-tight">Duplicate Bin</span>
+                <span className="font-medium text-white text-base tracking-tight">Duplicate Bin</span>
               </Link>
             </div>
             
             {/* Center Navigation - Desktop */}
-            <div className="hidden lg:flex items-center space-x-10">
+            <div className="hidden lg:flex items-center space-x-6">
               <Link 
                 to="/cli"
-                className="text-lg font-semibold text-gray-300 hover:text-white transition-colors duration-200 px-2 py-1"
+                className="text-sm font-medium text-gray-300 hover:text-white transition-colors duration-200 px-2 py-1"
               >
                 CLI
               </Link>
               
               <button 
                 onClick={() => handleNavClick('features')}
-                className="text-lg font-semibold text-gray-300 hover:text-white transition-colors duration-200 px-2 py-1"
+                className="text-sm font-medium text-gray-300 hover:text-white transition-colors duration-200 px-2 py-1"
               >
                 Features
               </button>
               
               <button 
                 onClick={() => handleNavClick('comprehensive-features')}
-                className="text-lg font-semibold text-gray-300 hover:text-white transition-colors duration-200 px-2 py-1"
+                className="text-sm font-medium text-gray-300 hover:text-white transition-colors duration-200 px-2 py-1"
               >
                 Enterprise
               </button>
               
               <button 
                 onClick={() => handleNavClick('download')}
-                className="text-lg font-semibold text-gray-300 hover:text-white transition-colors duration-200 px-2 py-1"
+                className="text-sm font-medium text-gray-300 hover:text-white transition-colors duration-200 px-2 py-1"
               >
                 Pricing
               </button>
               
               <Link 
                 to="/docs" 
-                className="text-lg font-semibold text-gray-300 hover:text-white transition-colors duration-200 px-2 py-1"
+                className="text-sm font-medium text-gray-300 hover:text-white transition-colors duration-200 px-2 py-1"
               >
                 Docs
               </Link>
               
               {/* Resources Dropdown */}
               <div className="relative group">
-                <button className="flex items-center text-lg font-semibold text-gray-300 hover:text-white transition-colors duration-200 px-2 py-1">
+                <button className="flex items-center text-sm font-medium text-gray-300 hover:text-white transition-colors duration-200 px-2 py-1">
                   Resources
-                  <ChevronDown className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
+                  <ChevronDown className="ml-1 h-3 w-3 transition-transform duration-200 group-hover:rotate-180" />
                 </button>
                 
                 {/* Dropdown Menu */}
@@ -140,12 +140,12 @@ export function Navbar() {
             </div>
             
             {/* Right Section - Actions */}
-            <div className="flex items-center space-x-6">
+            <div className="flex items-center space-x-4">
               {/* Search Command Hint - Hidden on mobile */}
-              <div className="hidden md:flex items-center text-gray-400 border border-gray-600 hover:border-gray-500 rounded-lg px-3 py-3 text-base font-medium transition-colors duration-200 cursor-pointer hover:bg-gray-800/50">
-                <Search className="h-4 w-4 mr-2" />
-                <span className="mr-3">Search</span>
-                <kbd className="inline-flex items-center rounded border border-gray-500 px-2 py-0.5 font-mono text-sm text-gray-400">
+              <div className="hidden md:flex items-center text-gray-400 border border-gray-600 hover:border-gray-500 rounded-lg px-2 py-2 text-sm font-medium transition-colors duration-200 cursor-pointer hover:bg-gray-800/50">
+                <Search className="h-3 w-3 mr-2" />
+                <span className="mr-2">Search</span>
+                <kbd className="inline-flex items-center rounded border border-gray-500 px-1.5 py-0.5 font-mono text-xs text-gray-400">
                   ⌘K
                 </kbd>
               </div>
@@ -159,7 +159,7 @@ export function Navbar() {
                     variant="ghost" 
                     size="default" 
                     asChild
-                    className="hidden sm:inline-flex text-gray-300 hover:text-white hover:bg-gray-800 border border-gray-600 hover:border-gray-500 px-4 py-3 text-lg font-semibold transition-all duration-200 rounded-lg"
+                    className="hidden sm:inline-flex text-gray-300 hover:text-white hover:bg-gray-800 border border-gray-600 hover:border-gray-500 px-3 py-2 text-sm font-medium transition-all duration-200 rounded-lg"
                   >
                     <Link to="/auth/login">Sign in</Link>
                   </Button>
@@ -167,7 +167,7 @@ export function Navbar() {
                   {/* Download CTA */}
                   <Button 
                     size="default" 
-                    className="bg-white text-black hover:bg-gray-100 active:bg-gray-200 rounded-full px-6 py-3.5 text-lg font-bold transition-all duration-200 focus:ring-2 focus:ring-white/30 focus:ring-offset-2 focus:ring-offset-black shadow-lg hover:shadow-xl"
+                    className="bg-white text-black hover:bg-gray-100 active:bg-gray-200 rounded-full px-4 py-2.5 text-sm font-semibold transition-all duration-200 focus:ring-2 focus:ring-white/30 focus:ring-offset-2 focus:ring-offset-black shadow-lg hover:shadow-xl"
                     onClick={() => handleNavClick('download')}
                   >
                     Download
@@ -178,19 +178,19 @@ export function Navbar() {
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="lg:hidden relative p-3 text-gray-300 hover:text-white transition-colors duration-200 hover:bg-gray-800 rounded-lg"
+                className="lg:hidden relative p-2 text-gray-300 hover:text-white transition-colors duration-200 hover:bg-gray-800 rounded-lg"
                 aria-label="Toggle mobile menu"
               >
-                <div className="relative w-6 h-6">
+                <div className="relative w-5 h-5">
                   <span className={`absolute inset-0 transition-all duration-200 ${
                     isMobileMenuOpen ? 'rotate-45 opacity-0' : 'rotate-0 opacity-100'
                   }`}>
-                    <Menu className="h-6 w-6" />
+                    <Menu className="h-5 w-5" />
                   </span>
                   <span className={`absolute inset-0 transition-all duration-200 ${
                     isMobileMenuOpen ? 'rotate-0 opacity-100' : '-rotate-45 opacity-0'
                   }`}>
-                    <X className="h-6 w-6" />
+                    <X className="h-5 w-5" />
                   </span>
                 </div>
               </button>
