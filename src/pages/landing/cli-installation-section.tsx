@@ -1,16 +1,17 @@
 import { useState } from 'react'
-import { Copy, Check, ArrowRight } from 'lucide-react'
+import { Copy, Check, ArrowRight, Monitor } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { Button } from '../../components/ui/button'
 
 export function CLIInstallationSection() {
   const [copiedCommand, setCopiedCommand] = useState<string | null>(null)
+  const [selectedPlatform, setSelectedPlatform] = useState<'linux' | 'windows'>('linux')
 
-  const commands = [
+  const linuxCommands = [
     {
       id: 'download',
       label: 'Download the latest release',
-      command: 'curl -L -o duplicate-bin.deb https://github.com/MustafaPinjari/duplicate-bin/releases/latest/download/duplicate-bin.deb'
+      command: 'curl -L -o duplicate-bin.deb https://github.com/MustafaPinjari/duplicate-bin/releases/download/v1.0.0/duplicate-bin.deb'
     },
     {
       id: 'install',
@@ -28,6 +29,31 @@ export function CLIInstallationSection() {
       command: 'duplicate-bin'
     }
   ]
+
+  const windowsCommands = [
+    {
+      id: 'download',
+      label: 'Download Windows executable',
+      command: 'Invoke-WebRequest -Uri "https://github.com/MustafaPinjari/duplicate-bin/releases/download/v0.1.1/DuplicateBin.exe" -OutFile "DuplicateBin.exe"'
+    },
+    {
+      id: 'run-gui',
+      label: 'Run GUI application',
+      command: '.\\DuplicateBin.exe --gui'
+    },
+    {
+      id: 'run-cli',
+      label: 'Run CLI scan',
+      command: '.\\DuplicateBin.exe scan "C:\\Users\\%USERNAME%\\Documents"'
+    },
+    {
+      id: 'help',
+      label: 'Show help',
+      command: '.\\DuplicateBin.exe --help'
+    }
+  ]
+
+  const commands = selectedPlatform === 'linux' ? linuxCommands : windowsCommands
 
   const handleCopy = async (command: string, commandId: string) => {
     try {
@@ -48,13 +74,45 @@ export function CLIInstallationSection() {
           {/* Main Headline */}
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-white leading-[0.9] mb-6 sm:mb-8">
             Clean duplicates safely,{' '}
-            <span className="text-gray-300">directly from your system</span>
+            <span className="text-gray-300">on any platform</span>
           </h2>
           
           {/* Supporting Text */}
           <p className="text-lg sm:text-xl lg:text-2xl leading-relaxed text-gray-400 font-light max-w-3xl mx-auto mb-4 sm:mb-6">
-            Duplicate Bin scans your storage, detects duplicate files with precision, and archives them safely before deletion. No risky automation. No system damage. Just full control.
+            Duplicate Bin scans your storage, detects duplicate files with precision, and archives them safely before deletion. Available for Linux and Windows with native performance.
           </p>
+          
+          {/* Platform Selector */}
+          <div className="flex justify-center mb-8 sm:mb-12">
+            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-1 flex">
+              <button
+                onClick={() => setSelectedPlatform('linux')}
+                className={`flex items-center px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                  selectedPlatform === 'linux'
+                    ? 'bg-blue-600 text-white'
+                    : 'text-gray-400 hover:text-white'
+                }`}
+              >
+                <img 
+                  src="/images/tux-penguin.png" 
+                  alt="Linux" 
+                  className="h-4 w-4 mr-2"
+                />
+                Linux
+              </button>
+              <button
+                onClick={() => setSelectedPlatform('windows')}
+                className={`flex items-center px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                  selectedPlatform === 'windows'
+                    ? 'bg-blue-600 text-white'
+                    : 'text-gray-400 hover:text-white'
+                }`}
+              >
+                <Monitor className="h-4 w-4 mr-2" />
+                Windows
+              </button>
+            </div>
+          </div>
           
           {/* Learn More Link */}
           <div className="mb-12 sm:mb-16">
@@ -105,7 +163,10 @@ export function CLIInstallationSection() {
           {/* Footer Hint */}
           <div className="mt-8 sm:mt-12">
             <p className="text-xs sm:text-sm text-gray-500 font-medium">
-              Works on Linux • Desktop & Server
+              {selectedPlatform === 'linux' 
+                ? 'Works on Linux • Desktop & Server • Ubuntu, Debian, CentOS, Fedora'
+                : 'Works on Windows • Desktop Application • Windows 10/11 • No Python Required'
+              }
             </p>
           </div>
         </div>

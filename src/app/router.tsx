@@ -10,6 +10,7 @@ import { ProtectedRoute } from './protected-route'
 import { DocsLayout } from '../pages/docs/docs-layout'
 import { DocsIndexPage } from '../pages/docs/index'
 import { DocsInstallationPage } from '../pages/docs/installation'
+import { DocsWindowsGuidePage } from '../pages/docs/windows-guide'
 import { DocsAuthenticationPage } from '../pages/docs/authentication'
 import { DocsFirstScanPage } from '../pages/docs/first-scan'
 import { DocsScanningEnginePage } from '../pages/docs/scanning-engine'
@@ -79,6 +80,10 @@ export const router = createBrowserRouter([
       {
         path: 'installation',
         element: <DocsInstallationPage />,
+      },
+      {
+        path: 'windows-guide',
+        element: <DocsWindowsGuidePage />,
       },
       {
         path: 'authentication',

@@ -7,12 +7,13 @@ export function DocsInstallationPage() {
       description="Install Duplicate Bin on your system with our comprehensive installation guide for all supported platforms."
     >
       <p>
-        Duplicate Bin supports multiple installation methods across different Linux distributions. 
+        Duplicate Bin supports multiple installation methods across different platforms including Linux and Windows. 
         Choose the method that best fits your environment and requirements.
       </p>
 
       <h2 id="system-requirements">System Requirements</h2>
 
+      <h3 id="linux-requirements">Linux Requirements</h3>
       <ul>
         <li><strong>Operating System:</strong> Linux (Ubuntu 20.04+, Debian 11+, CentOS 8+, Fedora 35+)</li>
         <li><strong>Architecture:</strong> x86_64 (amd64), ARM64</li>
@@ -21,12 +22,88 @@ export function DocsInstallationPage() {
         <li><strong>Permissions:</strong> Root access for system-wide installation</li>
       </ul>
 
-      <Callout type="info" title="Supported Distributions">
-        Duplicate Bin is tested on Ubuntu, Debian, CentOS, RHEL, Fedora, and Arch Linux. 
-        Other distributions may work but are not officially supported.
+      <h3 id="windows-requirements">Windows Requirements</h3>
+      <ul>
+        <li><strong>Operating System:</strong> Windows 10 (64-bit) or Windows 11</li>
+        <li><strong>Architecture:</strong> x86_64 (amd64)</li>
+        <li><strong>Memory:</strong> 2GB RAM minimum, 4GB recommended</li>
+        <li><strong>Storage:</strong> 200MB for installation, additional space for archives</li>
+        <li><strong>Permissions:</strong> Administrator access for installation</li>
+      </ul>
+
+      <Callout type="info" title="Platform Support">
+        Duplicate Bin provides native applications for both Linux and Windows platforms. 
+        Linux distributions include Ubuntu, Debian, CentOS, RHEL, Fedora, and Arch Linux.
       </Callout>
 
-      <h2 id="debian-ubuntu">Debian/Ubuntu Installation</h2>
+      <h2 id="windows-installation">Windows Installation</h2>
+
+      <p>
+        Duplicate Bin for Windows provides a native desktop application with both GUI and CLI interfaces.
+      </p>
+
+      <h3 id="windows-executable">Method 1: Standalone Executable (Recommended)</h3>
+
+      <CodeBlock language="powershell" title="Download and install Windows executable">
+{`# Download the latest Windows release
+# Visit: https://github.com/MustafaPinjari/duplicate-bin/releases/tag/v0.1.1
+
+# Or use PowerShell to download
+Invoke-WebRequest -Uri "https://github.com/MustafaPinjari/duplicate-bin/releases/download/v0.1.1/DuplicateBin.exe" -OutFile "DuplicateBin.exe"
+
+# Run the executable (no installation required)
+.\\DuplicateBin.exe
+
+# For GUI mode
+.\\DuplicateBin.exe --gui
+
+# For CLI mode
+.\\DuplicateBin.exe scan "C:\\Path\\To\\Folder"`}
+      </CodeBlock>
+
+      <Callout type="success" title="No Dependencies Required">
+        The Windows executable is completely standalone and doesn't require Python or any other dependencies to be installed.
+      </Callout>
+
+      <h3 id="windows-features">Windows-Specific Features</h3>
+
+      <ul>
+        <li><strong>Native GUI:</strong> Modern Windows-style interface with dark theme</li>
+        <li><strong>File Explorer Integration:</strong> Right-click context menu support</li>
+        <li><strong>Windows Icons:</strong> Proper file type icons and thumbnails</li>
+        <li><strong>Desktop Integration:</strong> Start menu and desktop shortcuts</li>
+        <li><strong>No Python Required:</strong> Runs on any Windows 10/11 machine</li>
+      </ul>
+
+      <h3 id="windows-cli">Windows Command Line Usage</h3>
+
+      <CodeBlock language="cmd" title="Windows CLI examples">
+{`# Basic scan
+DuplicateBin.exe scan "C:\\Users\\%USERNAME%\\Documents"
+
+# Scan with verbose output
+DuplicateBin.exe scan "C:\\Users\\%USERNAME%\\Pictures" --verbose
+
+# Generate report
+DuplicateBin.exe scan "C:\\Data" --report-format json --output report.json
+
+# Show help
+DuplicateBin.exe --help`}
+      </CodeBlock>
+
+      <h3 id="windows-gui">Windows GUI Features</h3>
+
+      <ul>
+        <li><strong>Drag & Drop:</strong> Drag folders directly into the application</li>
+        <li><strong>Progress Tracking:</strong> Real-time progress with visual indicators</li>
+        <li><strong>File Preview:</strong> Built-in preview for images, documents, and media</li>
+        <li><strong>Archive Management:</strong> Visual archive browser with thumbnails</li>
+        <li><strong>Settings Panel:</strong> Easy configuration through GUI</li>
+      </ul>
+
+      <h2 id="debian-ubuntu">Linux Installation</h2>
+
+      <h3 id="debian-ubuntu-install">Debian/Ubuntu Installation</h3>
 
       <p>
         The recommended installation method for Debian-based systems using our official .deb package:
@@ -36,7 +113,7 @@ export function DocsInstallationPage() {
 
       <CodeBlock language="bash" title="Install via DEB package">
 {`# Download the latest release
-curl -L -o duplicate-bin.deb https://github.com/MustafaPinjari/duplicate-bin/releases/latest/download/duplicate-bin.deb
+curl -L -o duplicate-bin.deb https://github.com/MustafaPinjari/duplicate-bin/releases/download/v1.0.0/duplicate-bin.deb
 
 # Verify the package (optional but recommended)
 dpkg --info duplicate-bin.deb
@@ -77,7 +154,7 @@ sudo apt install duplicate-bin`}
 
       <CodeBlock language="bash" title="Install via RPM package">
 {`# Download the latest release
-curl -L -o duplicate-bin.rpm https://github.com/MustafaPinjari/duplicate-bin/releases/latest/download/duplicate-bin.rpm
+curl -L -o duplicate-bin.rpm https://github.com/MustafaPinjari/duplicate-bin/releases/download/v1.0.0/duplicate-bin.rpm
 
 # Install the package (CentOS/RHEL)
 sudo yum install duplicate-bin.rpm
@@ -132,7 +209,7 @@ makepkg -si`}
 
       <CodeBlock language="bash" title="Direct binary installation">
 {`# Download the binary
-curl -L -o duplicate-bin https://github.com/MustafaPinjari/duplicate-bin/releases/latest/download/duplicate-bin-linux-amd64
+curl -L -o duplicate-bin https://github.com/MustafaPinjari/duplicate-bin/releases/download/v1.0.0/duplicate-bin-linux-amd64
 
 # Make it executable
 chmod +x duplicate-bin

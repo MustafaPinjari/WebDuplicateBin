@@ -9,15 +9,15 @@ export function DocsIndexPage() {
       heroImage="/images/HeroSection.png"
     >
       <div className="text-xl text-gray-300 leading-relaxed mb-8">
-        Duplicate Bin is a powerful, safety-first duplicate file management tool designed for developers, 
-        Linux users, and enterprise teams who need precise control over their file cleanup processes.
+        Duplicate Bin is an enterprise-grade, AI-powered duplicate file management tool designed for developers, 
+        system administrators, and organizations who need precise control over their file cleanup processes with maximum safety.
       </div>
 
       <h2 id="why-duplicate-bin">Why Duplicate Bin?</h2>
       
       <div className="text-lg text-gray-300 leading-relaxed mb-6">
         Traditional duplicate cleaners delete files immediately, risking accidental data loss. 
-        Duplicate Bin takes a different approach with these key features:
+        Duplicate Bin revolutionizes file management with advanced AI algorithms and enterprise-grade safety features:
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-10">
@@ -27,44 +27,44 @@ export function DocsIndexPage() {
             <h3 className="text-xl font-semibold text-white">Archive-First Workflow</h3>
           </div>
           <p className="text-gray-300 leading-relaxed">
-            Files are moved to a protected archive before deletion, giving you complete control and peace of mind.
+            Files are moved to a protected archive before deletion, with automated organization and compression options.
           </p>
         </div>
 
         <div className="bg-gray-900/30 border border-gray-800/50 rounded-2xl p-6 backdrop-blur-sm">
           <div className="flex items-center mb-4">
             <Shield className="h-6 w-6 text-green-400 mr-3" />
-            <h3 className="text-xl font-semibold text-white">System-Safe Scanning</h3>
+            <h3 className="text-xl font-semibold text-white">Multi-Layer Protection</h3>
           </div>
           <p className="text-gray-300 leading-relaxed">
-            Critical directories are automatically excluded to prevent accidental damage to your system.
+            Critical directories are automatically excluded with smart detection and customizable safety rules.
           </p>
         </div>
 
         <div className="bg-gray-900/30 border border-gray-800/50 rounded-2xl p-6 backdrop-blur-sm">
           <div className="flex items-center mb-4">
             <Zap className="h-6 w-6 text-yellow-400 mr-3" />
-            <h3 className="text-xl font-semibold text-white">Precision Detection</h3>
+            <h3 className="text-xl font-semibold text-white">AI-Powered Detection</h3>
           </div>
           <p className="text-gray-300 leading-relaxed">
-            SHA-256 hashing with metadata analysis ensures accurate duplicate detection.
+            Multi-algorithm hashing (SHA-256, MD5, Blake2b) with content-aware analysis and fuzzy matching.
           </p>
         </div>
 
         <div className="bg-gray-900/30 border border-gray-800/50 rounded-2xl p-6 backdrop-blur-sm">
           <div className="flex items-center mb-4">
             <CheckCircle className="h-6 w-6 text-purple-400 mr-3" />
-            <h3 className="text-xl font-semibold text-white">Full Rollback Support</h3>
+            <h3 className="text-xl font-semibold text-white">Cross-Platform Native</h3>
           </div>
           <p className="text-gray-300 leading-relaxed">
-            Restore any archived file at any time with complete directory structure preservation.
+            Native applications for Linux and Windows with GUI, CLI, and API interfaces.
           </p>
         </div>
       </div>
 
-      <Callout type="info" title="Safety First">
-        Duplicate Bin never deletes files directly. Everything goes through the archive-first workflow, 
-        giving you complete control and peace of mind.
+      <Callout type="info" title="Enterprise-Grade Features">
+        Duplicate Bin includes advanced features like parallel processing, plugin architecture, 
+        API integration, and enterprise security compliance for professional environments.
       </Callout>
 
       <h2 id="quick-start">Quick Start</h2>
@@ -75,29 +75,72 @@ export function DocsIndexPage() {
 
       <h3 id="installation">1. Installation</h3>
 
-      <CodeBlock language="bash" title="Install on Ubuntu/Debian">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div>
+          <h4 className="text-lg font-semibold text-white mb-3">Linux Installation</h4>
+          <CodeBlock language="bash" title="Install on Ubuntu/Debian">
 {`# Download the latest release
-curl -L -o duplicate-bin.deb https://github.com/MustafaPinjari/duplicate-bin/releases/latest/download/duplicate-bin.deb
+curl -L -o duplicate-bin.deb https://github.com/MustafaPinjari/duplicate-bin/releases/download/v1.0.0/duplicate-bin.deb
 
 # Install the package
 sudo dpkg -i duplicate-bin.deb
 
 # Install any missing dependencies
 sudo apt-get install -f`}
-      </CodeBlock>
+          </CodeBlock>
+        </div>
+
+        <div>
+          <h4 className="text-lg font-semibold text-white mb-3">Windows Installation</h4>
+          <CodeBlock language="powershell" title="Download Windows executable">
+{`# Download from GitHub releases
+# Visit: https://github.com/MustafaPinjari/duplicate-bin/releases/download/v0.1.1/DuplicateBin.exe
+
+# Run the standalone executable
+.\\DuplicateBin.exe
+
+# No installation required!`}
+          </CodeBlock>
+        </div>
+      </div>
 
       <h3 id="first-scan">2. Your First Scan</h3>
 
-      <CodeBlock language="bash" title="Basic scan command">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div>
+          <h4 className="text-lg font-semibold text-white mb-3">Linux CLI</h4>
+          <CodeBlock language="bash" title="Basic scan command">
 {`# Scan your Downloads folder
 duplicate-bin scan ~/Downloads
 
-# Review detected duplicates
-duplicate-bin review
+# Advanced scan with all features
+duplicate-bin scan ~/Documents \\
+  --algorithms sha256 md5 \\
+  --content-analysis \\
+  --fuzzy-matching \\
+  --similarity 0.90 \\
+  --threads 8
 
-# Archive selected duplicates
+# Review and archive
+duplicate-bin review
 duplicate-bin archive --confirm`}
-      </CodeBlock>
+          </CodeBlock>
+        </div>
+
+        <div>
+          <h4 className="text-lg font-semibold text-white mb-3">Windows GUI/CLI</h4>
+          <CodeBlock language="cmd" title="Windows usage">
+{`# GUI Mode (recommended)
+DuplicateBin.exe --gui
+
+# CLI Mode
+DuplicateBin.exe scan "C:\\Users\\%USERNAME%\\Documents"
+
+# Generate report
+DuplicateBin.exe scan "C:\\Data" --report-format json`}
+          </CodeBlock>
+        </div>
+      </div>
 
       <h3 id="web-interface">3. Web Interface</h3>
 
@@ -116,6 +159,80 @@ duplicate-bin web --port 8080
         You now have Duplicate Bin installed and ready to safely clean your file system. 
         Check out the <a href="/docs/first-scan" className="text-green-300 hover:text-green-200 font-medium">detailed first scan guide</a> for more advanced usage.
       </Callout>
+
+      <h2 id="advanced-features">Advanced Features</h2>
+
+      <div className="text-lg text-gray-300 leading-relaxed mb-6">
+        Duplicate Bin includes 30+ advanced features for enterprise-grade duplicate management:
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-10">
+        <div className="bg-gray-900/30 border border-gray-800/50 rounded-2xl p-6 backdrop-blur-sm">
+          <h4 className="text-lg font-semibold text-white mb-4">🔍 Intelligent Detection</h4>
+          <ul className="text-gray-300 space-y-2 text-sm">
+            <li>• Multi-Algorithm Hashing (SHA-256, MD5, CRC32, Blake2b)</li>
+            <li>• Content-Aware Analysis for images, videos, documents</li>
+            <li>• Fuzzy Matching with configurable similarity thresholds</li>
+            <li>• Metadata Comparison (EXIF, ID3, document properties)</li>
+            <li>• Binary Diff Analysis for precision detection</li>
+          </ul>
+        </div>
+
+        <div className="bg-gray-900/30 border border-gray-800/50 rounded-2xl p-6 backdrop-blur-sm">
+          <h4 className="text-lg font-semibold text-white mb-4">⚡ Performance & Scale</h4>
+          <ul className="text-gray-300 space-y-2 text-sm">
+            <li>• Multi-Threading Engine with worker pools</li>
+            <li>• Memory Optimization for large files</li>
+            <li>• Progress Tracking with ETA calculations</li>
+            <li>• Incremental Scanning (resume interrupted scans)</li>
+            <li>• Persistent Cache System for faster re-scans</li>
+          </ul>
+        </div>
+
+        <div className="bg-gray-900/30 border border-gray-800/50 rounded-2xl p-6 backdrop-blur-sm">
+          <h4 className="text-lg font-semibold text-white mb-4">🛡️ Security & Safety</h4>
+          <ul className="text-gray-300 space-y-2 text-sm">
+            <li>• Backup Integration with automatic backups</li>
+            <li>• Complete Rollback System</li>
+            <li>• Quarantine Mode for suspicious duplicates</li>
+            <li>• Permission Validation and integrity checks</li>
+            <li>• Audit Trails with complete operation history</li>
+          </ul>
+        </div>
+
+        <div className="bg-gray-900/30 border border-gray-800/50 rounded-2xl p-6 backdrop-blur-sm">
+          <h4 className="text-lg font-semibold text-white mb-4">🎯 Smart Filtering</h4>
+          <ul className="text-gray-300 space-y-2 text-sm">
+            <li>• Advanced Filters (size, date, type, location)</li>
+            <li>• Regex Pattern Matching</li>
+            <li>• Whitelist/Blacklist support</li>
+            <li>• Auto-Selection Rules</li>
+            <li>• Custom Priority Rules (newest, largest, best quality)</li>
+          </ul>
+        </div>
+
+        <div className="bg-gray-900/30 border border-gray-800/50 rounded-2xl p-6 backdrop-blur-sm">
+          <h4 className="text-lg font-semibold text-white mb-4">📊 Analytics & Reports</h4>
+          <ul className="text-gray-300 space-y-2 text-sm">
+            <li>• Detailed Statistics and analytics</li>
+            <li>• Visual Charts and graphs</li>
+            <li>• Export Reports (PDF, CSV, JSON)</li>
+            <li>• Complete Audit Trails</li>
+            <li>• Storage Impact Analysis</li>
+          </ul>
+        </div>
+
+        <div className="bg-gray-900/30 border border-gray-800/50 rounded-2xl p-6 backdrop-blur-sm">
+          <h4 className="text-lg font-semibold text-white mb-4">🔧 Enterprise Ready</h4>
+          <ul className="text-gray-300 space-y-2 text-sm">
+            <li>• REST API for integrations</li>
+            <li>• Plugin Architecture</li>
+            <li>• Scheduled Scans</li>
+            <li>• Network Scanning support</li>
+            <li>• Database Backend (SQLite/PostgreSQL)</li>
+          </ul>
+        </div>
+      </div>
 
       <h2 id="core-concepts">Core Concepts</h2>
 

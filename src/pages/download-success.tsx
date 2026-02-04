@@ -1,6 +1,6 @@
 "use client"
 import { useEffect } from "react"
-import { CheckCircle, Download, ExternalLink, Terminal, FileText, Shield, Zap, Users, ArrowRight } from 'lucide-react'
+import { CheckCircle, Download, ExternalLink, Terminal, FileText, Shield, Zap, Users, ArrowRight, Monitor } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 // Enhanced confetti component
@@ -10,7 +10,7 @@ const Confetti = () => {
     const createConfetti = () => {
       const colors = ['#8b5cf6', '#06b6d4', '#10b981', '#f59e0b', '#ef4444', '#ec4899', '#6366f1']
       const shapes = ['circle', 'square', 'triangle']
-      const confettiCount = 150
+      const confettiCount = 75 // Reduced from 150 to 75 (50% reduction)
       
       for (let i = 0; i < confettiCount; i++) {
         const confetti = document.createElement('div')
@@ -20,8 +20,8 @@ const Confetti = () => {
         confetti.className = 'confetti-particle'
         confetti.style.cssText = `
           position: fixed;
-          width: ${8 + Math.random() * 6}px;
-          height: ${8 + Math.random() * 6}px;
+          width: ${6 + Math.random() * 4}px;
+          height: ${6 + Math.random() * 4}px;
           background: ${color};
           left: ${Math.random() * 100}vw;
           top: -20px;
@@ -32,21 +32,21 @@ const Confetti = () => {
             width: 0;
             height: 0;
             background: transparent;
-            border-left: 6px solid transparent;
-            border-right: 6px solid transparent;
-            border-bottom: 10px solid ${color};
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-bottom: 6px solid ${color};
           ` : ''}
-          animation: confetti-fall ${2 + Math.random() * 4}s linear forwards;
+          animation: confetti-fall ${1.5 + Math.random() * 2}s linear forwards;
           transform: rotate(${Math.random() * 360}deg);
         `
         document.body.appendChild(confetti)
         
-        // Remove confetti after animation
+        // Remove confetti after animation (reduced time)
         setTimeout(() => {
           if (confetti.parentNode) {
             confetti.parentNode.removeChild(confetti)
           }
-        }, 6000)
+        }, 3500) // Reduced from 6000 to 3500
       }
     }
     
@@ -59,7 +59,7 @@ const Confetti = () => {
           opacity: 1;
         }
         100% {
-          transform: translateY(100vh) rotate(720deg);
+          transform: translateY(100vh) rotate(360deg);
           opacity: 0;
         }
       }
@@ -69,9 +69,9 @@ const Confetti = () => {
     // Start confetti immediately
     createConfetti()
     
-    // Continue confetti for longer
-    const interval = setInterval(createConfetti, 200)
-    setTimeout(() => clearInterval(interval), 5000)
+    // Continue confetti for shorter time
+    const interval = setInterval(createConfetti, 300) // Increased interval from 200 to 300
+    setTimeout(() => clearInterval(interval), 2500) // Reduced from 5000 to 2500
     
     return () => {
       clearInterval(interval)
@@ -89,34 +89,34 @@ export function DownloadSuccessPage() {
     <div className="min-h-screen bg-black relative overflow-hidden">
       <Confetti />
       
-      {/* Enhanced background effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-black to-green-900/20" />
+      {/* Enhanced background effects - reduced animation */}
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-black to-green-900/15" />
       <div className="absolute top-0 left-0 w-full h-full">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse-slow" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-green-500/15 rounded-full blur-3xl animate-pulse-slow" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-gradient-to-r from-blue-500/10 via-purple-500/15 to-green-500/10 rounded-full blur-3xl animate-pulse-slow" />
+        <div className="absolute top-1/4 left-1/4 w-80 h-80 bg-purple-500/15 rounded-full blur-3xl animate-pulse opacity-60" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-green-500/10 rounded-full blur-3xl animate-pulse opacity-50" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[250px] bg-gradient-to-r from-blue-500/8 via-purple-500/10 to-green-500/8 rounded-full blur-3xl animate-pulse opacity-40" />
       </div>
       
-      {/* Floating particles */}
+      {/* Floating particles - reduced animation */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-2 h-2 bg-purple-400 rounded-full animate-ping opacity-60"></div>
-        <div className="absolute top-40 right-32 w-1.5 h-1.5 bg-green-400 rounded-full animate-bounce opacity-50"></div>
-        <div className="absolute bottom-32 left-1/3 w-2.5 h-2.5 bg-blue-400 rounded-full animate-pulse opacity-40"></div>
-        <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-yellow-400 rounded-full animate-ping opacity-70"></div>
+        <div className="absolute top-20 left-20 w-1.5 h-1.5 bg-purple-400 rounded-full animate-pulse opacity-40"></div>
+        <div className="absolute top-40 right-32 w-1 h-1 bg-green-400 rounded-full animate-pulse opacity-30"></div>
+        <div className="absolute bottom-32 left-1/3 w-2 h-2 bg-blue-400 rounded-full animate-pulse opacity-25"></div>
+        <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-yellow-400 rounded-full animate-pulse opacity-35"></div>
       </div>
       
       <div className="relative z-10 px-6 py-16">
         <div className="max-w-6xl mx-auto">
           {/* Hero Section */}
           <div className="text-center mb-16">
-            {/* Animated success icon */}
+            {/* Animated success icon - reduced animation */}
             <div className="mb-8 flex justify-center">
               <div className="relative">
-                <div className="w-32 h-32 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center animate-bounce-slow shadow-2xl shadow-green-500/25">
-                  <CheckCircle className="h-16 w-16 text-white" />
+                <div className="w-28 h-28 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-2xl shadow-green-500/20">
+                  <CheckCircle className="h-14 w-14 text-white" />
                 </div>
-                {/* Pulsing ring */}
-                <div className="absolute inset-0 rounded-full border-4 border-green-400/30 animate-ping"></div>
+                {/* Subtle pulsing ring */}
+                <div className="absolute inset-0 rounded-full border-2 border-green-400/20 animate-pulse"></div>
               </div>
             </div>
             
@@ -143,18 +143,49 @@ export function DownloadSuccessPage() {
 
           {/* Download fallback section */}
           <div className="text-center mb-16">
-            <div className="bg-gray-900/50 border border-gray-800 rounded-2xl p-8 max-w-2xl mx-auto">
-              <h3 className="text-xl font-bold text-white mb-4">Download not started?</h3>
-              <p className="text-gray-400 mb-6">Click the button below to download manually</p>
-              <a
-                href="https://github.com/MustafaPinjari/duplicate-bin/releases/latest/download/duplicate-bin.deb"
-                download="duplicate-bin.deb"
-                className="inline-flex items-center px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-xl transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-purple-500/30"
-              >
-                <Download className="mr-3 h-5 w-5" />
-                Manual Download
-                <ExternalLink className="ml-3 h-5 w-5" />
-              </a>
+            <div className="bg-gray-900/50 border border-gray-800 rounded-2xl p-8 max-w-4xl mx-auto">
+              <h3 className="text-xl font-bold text-white mb-6">Download not started?</h3>
+              <p className="text-gray-400 mb-8">Choose your platform and download manually</p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Linux Download */}
+                <div className="bg-gray-800/50 border border-gray-700 rounded-xl p-6">
+                  <div className="flex items-center mb-4">
+                    <img 
+                      src="/images/tux-penguin.png" 
+                      alt="Linux" 
+                      className="h-8 w-8 mr-3"
+                    />
+                    <h4 className="text-lg font-semibold text-white">Linux (.deb)</h4>
+                  </div>
+                  <p className="text-gray-400 text-sm mb-4">Ubuntu, Debian, and derivatives</p>
+                  <a
+                    href="https://github.com/MustafaPinjari/duplicate-bin/releases/download/v1.0.0/duplicate-bin.deb"
+                    download="duplicate-bin.deb"
+                    className="inline-flex items-center px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-all duration-200 hover:scale-102 focus:outline-none focus:ring-4 focus:ring-purple-500/30 w-full justify-center"
+                  >
+                    <Download className="mr-2 h-4 w-4" />
+                    Download Linux
+                  </a>
+                </div>
+
+                {/* Windows Download */}
+                <div className="bg-gray-800/50 border border-gray-700 rounded-xl p-6">
+                  <div className="flex items-center mb-4">
+                    <Monitor className="h-8 w-8 text-blue-400 mr-3" />
+                    <h4 className="text-lg font-semibold text-white">Windows (.exe)</h4>
+                  </div>
+                  <p className="text-gray-400 text-sm mb-4">Windows 10/11, standalone executable</p>
+                  <a
+                    href="https://github.com/MustafaPinjari/duplicate-bin/releases/download/v0.1.1/DuplicateBin.exe"
+                    download="DuplicateBin.exe"
+                    className="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all duration-200 hover:scale-102 focus:outline-none focus:ring-4 focus:ring-blue-500/30 w-full justify-center"
+                  >
+                    <Download className="mr-2 h-4 w-4" />
+                    Download Windows
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
 

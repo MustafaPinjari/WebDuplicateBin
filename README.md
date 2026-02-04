@@ -5,13 +5,14 @@ A modern SaaS website for DuplicateBin, a safe duplicate file management tool wi
 ## 🌟 Features
 
 - **Modern Landing Page**: Beautiful, responsive design with dark theme
-- **Complete Documentation**: Comprehensive docs with responsive design
-- **Archive-First Safety**: Emphasizes safe duplicate cleanup approach
+- **Cross-Platform Support**: Native applications for Linux and Windows
+- **Complete Documentation**: Comprehensive docs with responsive design including Windows-specific guide
+- **Archive-First Safety**: Emphasizes safe duplicate cleanup approach with enterprise-grade features
 - **Premium UI/UX**: Professional SaaS design with smooth animations
 - **Testimonials**: Social proof with animated marquee
 - **FAQ Section**: Comprehensive answers to common questions
-- **Download Integration**: Direct GitHub release integration
-- **Success Page**: Celebration page with confetti and installation guide
+- **Multi-Platform Downloads**: Direct GitHub release integration for Linux (.deb) and Windows (.exe)
+- **Success Page**: Celebration page with confetti and installation guide for both platforms
 
 ## 🛠️ Tech Stack
 
@@ -114,10 +115,9 @@ This guide covers:
 
 ## 🔗 GitHub Integration
 
-The download button automatically fetches the latest release from:
-```
-https://github.com/MustafaPinjari/duplicate-bin/releases/latest/download/duplicate-bin.deb
-```
+The download buttons automatically fetch releases from:
+- **Linux**: `https://github.com/MustafaPinjari/duplicate-bin/releases/download/v1.0.0/duplicate-bin.deb`
+- **Windows**: `https://github.com/MustafaPinjari/duplicate-bin/releases/download/v0.1.1/DuplicateBin.exe`
 
 ## 🎯 Key Features
 
@@ -143,9 +143,10 @@ https://github.com/MustafaPinjari/duplicate-bin/releases/latest/download/duplica
 - Customize styling: `src/styles/globals.css` (docs-content section)
 
 ### GitHub Release Integration
-Update the download URL in:
-- `src/pages/landing/download-cta-section.tsx`
-- `src/pages/download-success.tsx`
+Update the download URLs in:
+- `src/pages/landing/download-cta-section.tsx` (both Linux and Windows)
+- `src/pages/download-success.tsx` (multi-platform support)
+- `src/pages/landing/cli-installation-section.tsx` (platform selector)
 
 ## 📱 Responsive Breakpoints
 
@@ -191,6 +192,12 @@ For support, email support@duplicatebin.dev or join our Discord community.
 
 ## 🔄 Recent Updates
 
+- ✅ Added Windows download support with native .exe executable
+- ✅ Enhanced documentation with comprehensive Windows installation guide
+- ✅ Improved cross-platform CLI installation section with platform selector
+- ✅ Updated download CTA section with dual-platform support
+- ✅ Added advanced features documentation from desktop application
+- ✅ Enhanced main documentation with enterprise-grade feature descriptions
 - ✅ Complete documentation system with responsive design
 - ✅ Fixed scrollbar issues with custom styling
 - ✅ Enhanced mobile navigation and responsiveness

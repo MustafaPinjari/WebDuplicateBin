@@ -16,6 +16,7 @@ const navigationData: NavItem[] = [
     items: [
       { title: "Introduction", href: "/docs", icon: <FileText className="h-4 w-4" /> },
       { title: "Installation", href: "/docs/installation", icon: <Settings className="h-4 w-4" /> },
+      { title: "Windows Guide", href: "/docs/windows-guide", icon: <Settings className="h-4 w-4" /> },
       { title: "Authentication", href: "/docs/authentication", icon: <Shield className="h-4 w-4" /> },
       { title: "Your First Scan", href: "/docs/first-scan", icon: <Zap className="h-4 w-4" /> },
     ]
