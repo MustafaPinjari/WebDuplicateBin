@@ -1,4 +1,4 @@
-import { ArrowRight, Code, Key, Globe, Database, CheckCircle, AlertTriangle, Copy } from 'lucide-react'
+import { ArrowRight, Code, Key, Globe, Database, CheckCircle, AlertTriangle } from 'lucide-react'
 
 export function RestApiPage() {
   return (

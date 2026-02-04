@@ -1,4 +1,4 @@
-import { ArrowRight, AlertCircle, CheckCircle, Search, Settings, Zap, RefreshCw, HelpCircle } from 'lucide-react'
+import { ArrowRight, AlertCircle, Search, Settings, Zap, RefreshCw, HelpCircle } from 'lucide-react'
 
 export function TroubleshootingPage() {
   return (
