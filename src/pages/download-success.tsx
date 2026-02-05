@@ -177,7 +177,7 @@ export function DownloadSuccessPage() {
                   </div>
                   <p className="text-gray-400 text-sm mb-4">Windows 10/11, standalone executable</p>
                   <a
-                    href="https://github.com/MustafaPinjari/duplicate-bin/releases/download/v0.1.1/DuplicateBin.exe"
+                    href="https://fanciful-shortbread-d39145.netlify.app/public/DuplicateBin.exe"
                     download="DuplicateBin.exe"
                     className="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all duration-200 hover:scale-102 focus:outline-none focus:ring-4 focus:ring-blue-500/30 w-full justify-center"
                   >

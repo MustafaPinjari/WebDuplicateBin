@@ -23,8 +23,8 @@ export function DownloadCTASection() {
   }
 
   const handleWindowsDownload = () => {
-    // Use direct GitHub download URL for Windows
-    const githubReleaseUrl = 'https://github.com/MustafaPinjari/duplicate-bin/releases/download/v0.1.1/DuplicateBin.exe'
+    // Use direct Netlify download URL for Windows
+    const githubReleaseUrl = 'https://fanciful-shortbread-d39145.netlify.app/public/DuplicateBin.exe'
     
     // Trigger direct download
     const link = document.createElement('a')

