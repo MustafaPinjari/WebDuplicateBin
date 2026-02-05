@@ -1,6 +1,6 @@
 "use client"
 import { useEffect } from "react"
-import { CheckCircle, Download, ExternalLink, Terminal, FileText, Shield, Zap, Users, ArrowRight, Monitor } from 'lucide-react'
+import { CheckCircle, Download, Terminal, FileText, Shield, Zap, Users, ArrowRight, Monitor } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 // Enhanced confetti component

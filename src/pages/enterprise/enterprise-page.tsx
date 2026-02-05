@@ -1,4 +1,4 @@
-import { ArrowRight, Shield, Users, Zap, Building, Globe, BarChart3, Headphones, Award, Star, Play, Archive, Calendar, MessageCircle, Download, Monitor, CheckCircle, Database, Lock, Cpu, Cloud, Settings, FileText } from 'lucide-react'
+import { ArrowRight, Shield, Users, Zap, Building, Globe, BarChart3, Headphones, Award, Star, Calendar, MessageCircle, Download, Monitor, CheckCircle, Database, Lock, Cloud, Settings, FileText } from 'lucide-react'
 import { Navbar } from '../../components/layout/navbar'
 import { Footer } from '../../components/layout/footer'
 import { Button } from '../../components/ui/button'
