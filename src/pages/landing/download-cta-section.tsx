@@ -23,13 +23,14 @@ export function DownloadCTASection() {
   }
 
   const handleWindowsDownload = () => {
-    // Use GitHub release URL for Windows download
+    // Use direct GitHub download URL for Windows
     const githubReleaseUrl = 'https://github.com/MustafaPinjari/duplicate-bin/releases/download/v0.1.1/DuplicateBin.exe'
     
-    // Trigger download
+    // Trigger direct download
     const link = document.createElement('a')
     link.href = githubReleaseUrl
     link.download = 'DuplicateBin.exe'
+    link.target = '_blank'
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
