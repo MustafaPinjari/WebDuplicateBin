@@ -31,7 +31,7 @@ export function DocsLayout() {
 
         {/* Left Sidebar - Fixed */}
         <aside className={`
-          fixed top-20 left-0 z-50 h-[calc(100vh-5rem)] w-72 sm:w-80 transform bg-gray-950/95 backdrop-blur-sm border-r border-gray-800/50 transition-transform duration-300 ease-in-out lg:relative lg:top-0 lg:translate-x-0 lg:z-0 lg:bg-gray-950/50 lg:w-80 flex-shrink-0
+          fixed top-20 left-0 z-50 h-[calc(100vh-5rem)] w-72 sm:w-80 transform bg-gray-950/95 backdrop-blur-sm border-r border-gray-800/50 transition-transform duration-300 ease-in-out lg:relative lg:top-0 lg:translate-x-0 lg:z-0 lg:bg-gray-950/50 lg:w-72 xl:w-80 flex-shrink-0
           ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}
         `}>
           <div className="h-full overflow-y-auto hide-scrollbar">
@@ -43,7 +43,7 @@ export function DocsLayout() {
         <main className="flex-1 min-w-0 flex">
           {/* Content */}
           <div className="flex-1 overflow-y-auto hide-scrollbar">
-            <div className="px-4 sm:px-6 lg:px-8 xl:px-12 py-6 sm:py-8 max-w-4xl mx-auto w-full">
+            <div className="px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 py-6 sm:py-8 lg:py-10 max-w-6xl 2xl:max-w-7xl mx-auto w-full">
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsSidebarOpen(true)}
@@ -58,8 +58,8 @@ export function DocsLayout() {
           </div>
 
           {/* Right Sidebar - Table of Contents - Fixed */}
-          <aside className="hidden xl:block w-80 flex-shrink-0 border-l border-gray-800/50">
-            <div className="sticky top-28 h-[calc(100vh-10rem)] overflow-y-auto hide-scrollbar px-6 py-8">
+          <aside className="hidden xl:block w-72 2xl:w-80 flex-shrink-0 border-l border-gray-800/50">
+            <div className="sticky top-28 h-[calc(100vh-10rem)] overflow-y-auto hide-scrollbar px-4 2xl:px-6 py-8">
               <DocsTableOfContents />
             </div>
           </aside>

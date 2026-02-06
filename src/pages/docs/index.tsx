@@ -47,7 +47,7 @@ export function DocsIndexPage() {
             <h3 className="text-xl font-semibold text-white">AI-Powered Detection</h3>
           </div>
           <p className="text-gray-300 leading-relaxed">
-            Multi-algorithm hashing (SHA-256, MD5, Blake2b) with content-aware analysis and fuzzy matching.
+            Multi-algorithm hashing (SHA-256, MD5, CRC32, Blake2b, xxhash) with content-aware analysis and fuzzy matching.
           </p>
         </div>
 
@@ -170,7 +170,7 @@ duplicate-bin web --port 8080
         <div className="bg-gray-900/30 border border-gray-800/50 rounded-2xl p-6 backdrop-blur-sm">
           <h4 className="text-lg font-semibold text-white mb-4">🔍 Intelligent Detection</h4>
           <ul className="text-gray-300 space-y-2 text-sm">
-            <li>• Multi-Algorithm Hashing (SHA-256, MD5, CRC32, Blake2b)</li>
+            <li>• Multi-Algorithm Hashing (SHA-256, MD5, CRC32, Blake2b, xxhash)</li>
             <li>• Content-Aware Analysis for images, videos, documents</li>
             <li>• Fuzzy Matching with configurable similarity thresholds</li>
             <li>• Metadata Comparison (EXIF, ID3, document properties)</li>
@@ -182,8 +182,8 @@ duplicate-bin web --port 8080
           <h4 className="text-lg font-semibold text-white mb-4">⚡ Performance & Scale</h4>
           <ul className="text-gray-300 space-y-2 text-sm">
             <li>• Multi-Threading Engine with worker pools</li>
-            <li>• Memory Optimization for large files</li>
-            <li>• Progress Tracking with ETA calculations</li>
+            <li>• Memory Optimization with streaming hash calculation</li>
+            <li>• Progress Tracking with real-time ETA calculations</li>
             <li>• Incremental Scanning (resume interrupted scans)</li>
             <li>• Persistent Cache System for faster re-scans</li>
           </ul>
@@ -193,10 +193,10 @@ duplicate-bin web --port 8080
           <h4 className="text-lg font-semibold text-white mb-4">🛡️ Security & Safety</h4>
           <ul className="text-gray-300 space-y-2 text-sm">
             <li>• Backup Integration with automatic backups</li>
-            <li>• Complete Rollback System</li>
+            <li>• Complete Rollback System for undo operations</li>
             <li>• Quarantine Mode for suspicious duplicates</li>
-            <li>• Permission Validation and integrity checks</li>
-            <li>• Audit Trails with complete operation history</li>
+            <li>• Permission Validation and smart file access</li>
+            <li>• Integrity Verification with post-operation checks</li>
           </ul>
         </div>
 
@@ -204,9 +204,9 @@ duplicate-bin web --port 8080
           <h4 className="text-lg font-semibold text-white mb-4">🎯 Smart Filtering</h4>
           <ul className="text-gray-300 space-y-2 text-sm">
             <li>• Advanced Filters (size, date, type, location)</li>
-            <li>• Regex Pattern Matching</li>
-            <li>• Whitelist/Blacklist support</li>
-            <li>• Auto-Selection Rules</li>
+            <li>• Regex Pattern Matching for filenames and paths</li>
+            <li>• Whitelist/Blacklist for exclusions</li>
+            <li>• Auto-Selection Rules with intelligent algorithms</li>
             <li>• Custom Priority Rules (newest, largest, best quality)</li>
           </ul>
         </div>
@@ -214,22 +214,22 @@ duplicate-bin web --port 8080
         <div className="bg-gray-900/30 border border-gray-800/50 rounded-2xl p-6 backdrop-blur-sm">
           <h4 className="text-lg font-semibold text-white mb-4">📊 Analytics & Reports</h4>
           <ul className="text-gray-300 space-y-2 text-sm">
-            <li>• Detailed Statistics and analytics</li>
-            <li>• Visual Charts and graphs</li>
-            <li>• Export Reports (PDF, CSV, JSON)</li>
-            <li>• Complete Audit Trails</li>
-            <li>• Storage Impact Analysis</li>
+            <li>• Detailed Statistics with comprehensive analytics</li>
+            <li>• Visual Charts for space usage and distribution</li>
+            <li>• Export Reports (PDF, CSV, JSON formats)</li>
+            <li>• Complete Audit Trails with operation history</li>
+            <li>• Storage Impact Analysis (before/after comparison)</li>
           </ul>
         </div>
 
         <div className="bg-gray-900/30 border border-gray-800/50 rounded-2xl p-6 backdrop-blur-sm">
-          <h4 className="text-lg font-semibold text-white mb-4">🔧 Enterprise Ready</h4>
+          <h4 className="text-lg font-semibold text-white mb-4">🎨 User Experience</h4>
           <ul className="text-gray-300 space-y-2 text-sm">
-            <li>• REST API for integrations</li>
-            <li>• Plugin Architecture</li>
-            <li>• Scheduled Scans</li>
-            <li>• Network Scanning support</li>
-            <li>• Database Backend (SQLite/PostgreSQL)</li>
+            <li>• Dark/Light Themes with customization</li>
+            <li>• Drag & Drop Support for intuitive operations</li>
+            <li>• Keyboard Shortcuts for power users</li>
+            <li>• Plugin Architecture for extensibility</li>
+            <li>• Multi-Language Support (15+ languages)</li>
           </ul>
         </div>
       </div>
@@ -341,7 +341,11 @@ duplicate-bin web --port 8080
         Need help? Our community and support resources are here for you:
       </div>
 
-      <div className="space-y-4">
+      <Callout type="info" title="Multi-Language Support">
+        Duplicate Bin supports 15+ languages including English, Spanish, French, German, Italian, Portuguese, Russian, Chinese (Simplified), Japanese, Korean, Hindi, Arabic, Dutch, Swedish, and Polish. Change language in Settings or use <code>--language</code> flag.
+      </Callout>
+
+      <div className="space-y-4 mt-8">
         {[
           { title: "Troubleshooting Guide", desc: "Common issues and solutions", href: "/docs/guides/troubleshooting" },
           { title: "Community Forum", desc: "Ask questions and share knowledge", href: "/community" },

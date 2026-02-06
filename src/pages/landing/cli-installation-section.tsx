@@ -125,35 +125,48 @@ export function CLIInstallationSection() {
             </Link>
           </div>
           
-          {/* Terminal Command Boxes */}
+          {/* Terminal Command Boxes with Dracula Theme */}
           <div className="space-y-3 sm:space-y-4 max-w-4xl mx-auto">
-            {commands.map((cmd) => (
+            {commands.map((cmd, index) => (
               <div key={cmd.id} className="text-left">
-                {/* Command Label */}
-                <div className="text-xs sm:text-sm text-gray-500 mb-2 font-mono px-1">
-                  # {cmd.label}
+                {/* Command Label with Dracula comment color */}
+                <div className="text-xs sm:text-sm text-[#6272a4] mb-2 font-mono px-1 flex items-center">
+                  <span className="text-[#ff79c6] mr-2">❯</span>
+                  <span># {cmd.label}</span>
                 </div>
                 
-                {/* Terminal Box */}
-                <div className="bg-gray-900/50 border border-gray-800 rounded-lg sm:rounded-xl p-3 sm:p-4 font-mono text-xs sm:text-sm relative group hover:border-gray-700 transition-colors">
+                {/* Terminal Box with Dracula background */}
+                <div className="bg-[#282a36] border border-[#44475a] rounded-lg sm:rounded-xl p-3 sm:p-4 font-mono text-xs sm:text-sm relative group hover:border-[#6272a4] transition-all shadow-lg hover:shadow-xl">
                   <div className="flex items-start sm:items-center justify-between gap-2 sm:gap-4">
-                    <code className="text-green-400 flex-1 break-all leading-relaxed">
-                      {cmd.command}
+                    {/* Command with syntax highlighting */}
+                    <code className="flex-1 break-all leading-relaxed">
+                      <span className="text-[#8be9fd]">$</span>
+                      <span className="text-[#f8f8f2]"> </span>
+                      <span className="text-[#50fa7b]">{cmd.command.split(' ')[0]}</span>
+                      <span className="text-[#f8f8f2]"> </span>
+                      <span className="text-[#8be9fd]">{cmd.command.split(' ').slice(1).join(' ')}</span>
                     </code>
                     
-                    {/* Copy Button */}
+                    {/* Copy Button with Dracula colors */}
                     <Button
                       variant="ghost"
                       size="sm"
                       onClick={() => handleCopy(cmd.command, cmd.id)}
-                      className="flex-shrink-0 h-7 w-7 sm:h-8 sm:w-8 p-0 text-gray-400 hover:text-white hover:bg-gray-800 transition-colors"
+                      className="flex-shrink-0 h-7 w-7 sm:h-8 sm:w-8 p-0 text-[#6272a4] hover:text-[#f8f8f2] hover:bg-[#44475a] transition-colors"
                     >
                       {copiedCommand === cmd.id ? (
-                        <Check className="h-3 w-3 sm:h-4 sm:w-4 text-green-500" />
+                        <Check className="h-3 w-3 sm:h-4 sm:w-4 text-[#50fa7b]" />
                       ) : (
                         <Copy className="h-3 w-3 sm:h-4 sm:w-4" />
                       )}
                     </Button>
+                  </div>
+                  
+                  {/* Terminal prompt indicator */}
+                  <div className="absolute left-2 top-2 flex space-x-1.5">
+                    <div className="w-2 h-2 rounded-full bg-[#ff5555]"></div>
+                    <div className="w-2 h-2 rounded-full bg-[#f1fa8c]"></div>
+                    <div className="w-2 h-2 rounded-full bg-[#50fa7b]"></div>
                   </div>
                 </div>
               </div>

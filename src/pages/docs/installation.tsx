@@ -7,9 +7,36 @@ export function DocsInstallationPage() {
       description="Install Duplicate Bin on your system with our comprehensive installation guide for all supported platforms."
     >
       <p>
-        Duplicate Bin supports multiple installation methods across different platforms including Linux and Windows. 
+        Duplicate Bin supports 5 comprehensive installation methods across different platforms including Linux and Windows. 
         Choose the method that best fits your environment and requirements.
       </p>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-8">
+        <div className="bg-gray-900/30 border border-gray-800/50 rounded-xl p-4">
+          <h4 className="text-white font-semibold mb-2">Method 1: One-Command Setup</h4>
+          <p className="text-gray-400 text-sm">Automated installation script (Linux)</p>
+        </div>
+        <div className="bg-gray-900/30 border border-gray-800/50 rounded-xl p-4">
+          <h4 className="text-white font-semibold mb-2">Method 2: Pre-built Package</h4>
+          <p className="text-gray-400 text-sm">DEB/RPM packages from GitHub releases</p>
+        </div>
+        <div className="bg-gray-900/30 border border-gray-800/50 rounded-xl p-4">
+          <h4 className="text-white font-semibold mb-2">Method 3: Development Setup</h4>
+          <p className="text-gray-400 text-sm">Install from source with Python</p>
+        </div>
+        <div className="bg-gray-900/30 border border-gray-800/50 rounded-xl p-4">
+          <h4 className="text-white font-semibold mb-2">Method 4: Docker Container</h4>
+          <p className="text-gray-400 text-sm">Containerized deployment</p>
+        </div>
+        <div className="bg-gray-900/30 border border-gray-800/50 rounded-xl p-4">
+          <h4 className="text-white font-semibold mb-2">Method 5: Snap Package</h4>
+          <p className="text-gray-400 text-sm">Universal Linux package</p>
+        </div>
+        <div className="bg-gray-900/30 border border-gray-800/50 rounded-xl p-4">
+          <h4 className="text-white font-semibold mb-2">Windows: Standalone EXE</h4>
+          <p className="text-gray-400 text-sm">No installation required</p>
+        </div>
+      </div>
 
       <h2 id="system-requirements">System Requirements</h2>
 
@@ -221,7 +248,7 @@ sudo mv duplicate-bin /usr/local/bin/
 duplicate-bin --version`}
       </CodeBlock>
 
-      <h2 id="docker-installation">Docker Installation</h2>
+      <h2 id="docker-installation">Docker Installation (Method 4)</h2>
 
       <p>
         Run Duplicate Bin in a containerized environment:
@@ -229,16 +256,97 @@ duplicate-bin --version`}
 
       <CodeBlock language="bash" title="Docker installation">
 {`# Pull the official image
-docker pull duplicatebin/duplicate-bin:latest
+docker pull mustafapinjari/duplicate-bin:latest
 
 # Run with volume mounts
 docker run -it --rm \\
   -v /path/to/scan:/data \\
   -v /path/to/archive:/archive \\
-  duplicatebin/duplicate-bin:latest scan /data
+  mustafapinjari/duplicate-bin:latest scan /data
+
+# Build from source
+docker build -t duplicate-bin .
+docker run -it duplicate-bin
 
 # Create an alias for easier usage
-echo 'alias duplicate-bin="docker run -it --rm -v \$(pwd):/data duplicatebin/duplicate-bin:latest"' >> ~/.bashrc`}
+echo 'alias duplicate-bin="docker run -it --rm -v \$(pwd):/data mustafapinjari/duplicate-bin:latest"' >> ~/.bashrc`}
+      </CodeBlock>
+
+      <h2 id="snap-installation">Snap Package Installation (Method 5)</h2>
+
+      <p>
+        Universal Linux package that works across all distributions:
+      </p>
+
+      <CodeBlock language="bash" title="Snap installation">
+{`# Install from Snap Store
+sudo snap install duplicate-bin
+
+# Connect home interface for file access
+sudo snap connect duplicate-bin:home
+
+# Connect removable-media for external drives
+sudo snap connect duplicate-bin:removable-media
+
+# Run the application
+duplicate-bin
+
+# Update to latest version
+sudo snap refresh duplicate-bin`}
+      </CodeBlock>
+
+      <Callout type="info" title="Snap Confinement">
+        Snap packages run in a confined environment. You may need to manually connect interfaces to access certain directories or features.
+      </Callout>
+
+      <h2 id="one-command-setup">One-Command Setup (Method 1 - Linux)</h2>
+
+      <p>
+        The fastest way to get started on Linux systems:
+      </p>
+
+      <CodeBlock language="bash" title="Automated installation">
+{`# Download and run installation script
+curl -fsSL https://raw.githubusercontent.com/MustafaPinjari/duplicate-bin/main/install.sh | bash
+
+# Or with wget
+wget -qO- https://raw.githubusercontent.com/MustafaPinjari/duplicate-bin/main/install.sh | bash
+
+# The script automatically:
+# ✅ Detects your Linux distribution
+# ✅ Downloads the appropriate package
+# ✅ Installs all dependencies
+# ✅ Sets up desktop integration
+# ✅ Configures system paths
+# ✅ Runs initial tests`}
+      </CodeBlock>
+
+      <h2 id="development-setup">Development Setup (Method 3)</h2>
+
+      <p>
+        Install from source for development or customization:
+      </p>
+
+      <CodeBlock language="bash" title="Development installation">
+{`# Clone the repository
+git clone https://github.com/MustafaPinjari/duplicate-bin.git
+cd duplicate-bin
+
+# Create virtual environment
+python3 -m venv .venv
+source .venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Install in development mode
+pip install -e .
+
+# Run from source
+python scripts/duplicate_bin.py
+
+# Or use the CLI
+python scripts/duplicate_bin.py scan ~/Documents`}
       </CodeBlock>
 
       <h2 id="configuration">Post-Installation Configuration</h2>

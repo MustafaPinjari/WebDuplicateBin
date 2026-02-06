@@ -55,14 +55,62 @@ export function DocsScanningEnginePage() {
         </div>
 
         <div className="bg-gray-900/30 border border-gray-800/50 rounded-2xl p-6 backdrop-blur-sm">
-          <h3 className="text-xl font-semibold text-white mb-4">Blake3 (Fast)</h3>
+          <h3 className="text-xl font-semibold text-white mb-4">Blake2b (Fast & Secure)</h3>
           <div className="space-y-3 mb-4">
             <div className="text-green-400">✓ Extremely fast</div>
-            <div className="text-green-400">✓ Parallel processing</div>
+            <div className="text-green-400">✓ Cryptographically secure</div>
             <div className="text-green-400">✓ Modern algorithm</div>
           </div>
           <CodeBlock language="bash">
-{`duplicate-bin scan . --hash blake3`}
+{`duplicate-bin scan . --hash blake2b`}
+          </CodeBlock>
+        </div>
+
+        <div className="bg-gray-900/30 border border-gray-800/50 rounded-2xl p-6 backdrop-blur-sm">
+          <h3 className="text-xl font-semibold text-white mb-4">xxhash (Ultra Fast)</h3>
+          <div className="space-y-3 mb-4">
+            <div className="text-green-400">✓ Blazing fast speed</div>
+            <div className="text-green-400">✓ Low CPU usage</div>
+            <div className="text-yellow-400">~ Non-cryptographic</div>
+          </div>
+          <CodeBlock language="bash">
+{`duplicate-bin scan . --hash xxhash`}
+          </CodeBlock>
+        </div>
+
+        <div className="bg-gray-900/30 border border-gray-800/50 rounded-2xl p-6 backdrop-blur-sm">
+          <h3 className="text-xl font-semibold text-white mb-4">MD5 (Legacy)</h3>
+          <div className="space-y-3 mb-4">
+            <div className="text-green-400">✓ Fast computation</div>
+            <div className="text-green-400">✓ Wide compatibility</div>
+            <div className="text-red-400">✗ Not cryptographically secure</div>
+          </div>
+          <CodeBlock language="bash">
+{`duplicate-bin scan . --hash md5`}
+          </CodeBlock>
+        </div>
+
+        <div className="bg-gray-900/30 border border-gray-800/50 rounded-2xl p-6 backdrop-blur-sm">
+          <h3 className="text-xl font-semibold text-white mb-4">CRC32 (Quick Check)</h3>
+          <div className="space-y-3 mb-4">
+            <div className="text-green-400">✓ Very fast</div>
+            <div className="text-yellow-400">~ Good for pre-filtering</div>
+            <div className="text-red-400">✗ Higher collision risk</div>
+          </div>
+          <CodeBlock language="bash">
+{`duplicate-bin scan . --hash crc32`}
+          </CodeBlock>
+        </div>
+
+        <div className="bg-gray-900/30 border border-gray-800/50 rounded-2xl p-6 backdrop-blur-sm">
+          <h3 className="text-xl font-semibold text-white mb-4">Multi-Algorithm (Recommended)</h3>
+          <div className="space-y-3 mb-4">
+            <div className="text-green-400">✓ Maximum accuracy</div>
+            <div className="text-green-400">✓ Layered verification</div>
+            <div className="text-yellow-400">~ Slower but thorough</div>
+          </div>
+          <CodeBlock language="bash">
+{`duplicate-bin scan . --algorithms sha256,md5`}
           </CodeBlock>
         </div>
       </div>
@@ -77,14 +125,17 @@ export function DocsScanningEnginePage() {
 {`# Use multiple threads (default: CPU cores)
 duplicate-bin scan . --threads 8
 
-# Adjust memory usage
-duplicate-bin scan . --memory-limit 2GB
+# Adjust memory usage and chunk size
+duplicate-bin scan . --memory-limit 2GB --chunk-size 8192
 
 # Skip small files for speed
 duplicate-bin scan . --min-size 1MB
 
 # Use faster hash for large datasets
-duplicate-bin scan . --hash blake3 --quick-hash-size 64KB`}
+duplicate-bin scan . --hash xxhash --quick-hash-size 64KB
+
+# Enable hash caching for faster re-scans
+duplicate-bin scan . --enable-cache --cache-dir ~/.cache/duplicate-bin`}
       </CodeBlock>
 
       <div className="bg-gray-900/30 border border-gray-800/50 rounded-2xl p-8 my-8 backdrop-blur-sm">
@@ -93,37 +144,48 @@ duplicate-bin scan . --hash blake3 --quick-hash-size 64KB`}
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-gray-700">
-                <th className="text-left py-3 text-gray-300">Dataset Size</th>
-                <th className="text-left py-3 text-gray-300">Files</th>
-                <th className="text-left py-3 text-gray-300">SHA-256</th>
-                <th className="text-left py-3 text-gray-300">Blake3</th>
-                <th className="text-left py-3 text-gray-300">Memory</th>
+                <th className="text-left py-3 text-gray-300">Operation</th>
+                <th className="text-left py-3 text-gray-300">Small (1K files)</th>
+                <th className="text-left py-3 text-gray-300">Medium (10K files)</th>
+                <th className="text-left py-3 text-gray-300">Large (100K files)</th>
               </tr>
             </thead>
             <tbody className="text-gray-300">
               <tr className="border-b border-gray-800">
-                <td className="py-3">10 GB</td>
-                <td className="py-3">5,000</td>
-                <td className="py-3">2m 15s</td>
-                <td className="py-3">1m 30s</td>
-                <td className="py-3">150 MB</td>
+                <td className="py-3">Initial Scan</td>
+                <td className="py-3">2.3s</td>
+                <td className="py-3">18.7s</td>
+                <td className="py-3">3m 42s</td>
               </tr>
               <tr className="border-b border-gray-800">
-                <td className="py-3">100 GB</td>
-                <td className="py-3">50,000</td>
-                <td className="py-3">18m 45s</td>
-                <td className="py-3">12m 20s</td>
-                <td className="py-3">800 MB</td>
+                <td className="py-3">Re-scan (cached)</td>
+                <td className="py-3">0.8s</td>
+                <td className="py-3">4.2s</td>
+                <td className="py-3">28.4s</td>
+              </tr>
+              <tr className="border-b border-gray-800">
+                <td className="py-3">Memory Usage</td>
+                <td className="py-3">45 MB</td>
+                <td className="py-3">180 MB</td>
+                <td className="py-3">850 MB</td>
               </tr>
               <tr>
-                <td className="py-3">1 TB</td>
-                <td className="py-3">500,000</td>
-                <td className="py-3">3h 15m</td>
-                <td className="py-3">2h 10m</td>
-                <td className="py-3">4 GB</td>
+                <td className="py-3">CPU Usage</td>
+                <td className="py-3">25%</td>
+                <td className="py-3">65%</td>
+                <td className="py-3">85%</td>
               </tr>
             </tbody>
           </table>
+        </div>
+        <div className="mt-6 text-gray-400 text-sm">
+          <p className="mb-2"><strong>Optimization Tips:</strong></p>
+          <ul className="list-disc list-inside space-y-1">
+            <li>Enable hash caching for repeated scans</li>
+            <li>Use SSD storage for better I/O performance</li>
+            <li>Increase thread count on multi-core systems</li>
+            <li>Configure memory limits for large datasets</li>
+          </ul>
         </div>
       </div>
 
