@@ -103,12 +103,12 @@ export function Navbar() {
                 CLI
               </Link>
               
-              <button 
-                onClick={() => handleNavClick('comprehensive-features')}
+              <Link 
+                to="/features"
                 className="text-sm font-medium text-gray-300 hover:text-white transition-colors duration-200 px-2 py-1"
               >
                 Features
-              </button>
+              </Link>
               
               <Link 
                 to="/enterprise"
@@ -255,13 +255,14 @@ export function Navbar() {
                   CLI Documentation
                 </Link>
                 
-                <button 
-                  onClick={() => handleNavClick('comprehensive-features')}
+                <Link 
+                  to="/features"
                   className="flex items-center w-full px-3 py-2.5 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md transition-all duration-200 group"
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   <FileText className="h-4 w-4 mr-3 text-gray-500 group-hover:text-gray-400 transition-colors" />
                   Features
-                </button>
+                </Link>
                 
                 <Link 
                   to="/enterprise"

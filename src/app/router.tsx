@@ -31,11 +31,16 @@ import { EnterprisePage } from '../pages/enterprise/enterprise-page'
 import { GitHubPage } from '../pages/github/github-page'
 import { CommunityPage } from '../pages/community/community-page'
 import { CLIPage } from '../pages/cli/cli-page'
+import { FeaturesPage } from '../pages/features/features-page'
 
 export const router = createBrowserRouter([
   {
     path: '/',
     element: <LandingPage />,
+  },
+  {
+    path: '/features',
+    element: <FeaturesPage />,
   },
   {
     path: '/download-success',
