@@ -37,6 +37,7 @@ export function DashboardPage() {
     total_files_processed: 0,
     total_duplicates_found: 0,
     active_devices_count: 0,
+    credit_bytes: 0,
     scans_history: [] as ScanHistoryItem[]
   })
 
@@ -180,10 +181,13 @@ export function DashboardPage() {
               </div>
               <div className="flex justify-between items-center text-sm">
                 <span className="text-gray-400">Deduplication Credits:</span>
-                <span className="font-bold text-yellow-500">14.2 GB left</span>
+                <span className="font-bold text-yellow-500">{formatBytes(stats.credit_bytes)} left</span>
               </div>
               <div className="w-full bg-gray-800 rounded-full h-1.5 mt-2">
-                <div className="bg-yellow-500 h-1.5 rounded-full" style={{ width: '70%' }} />
+                <div 
+                  className="bg-yellow-500 h-1.5 rounded-full" 
+                  style={{ width: `${Math.min(100, Math.max(0, (stats.credit_bytes / 10737418240) * 100))}%` }} 
+                />
               </div>
             </div>
             
