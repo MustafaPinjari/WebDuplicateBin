@@ -3,13 +3,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button'
 import { 
   HardDrive, 
-  FileSearch, 
   Clock, 
-  Shield,
-  TrendingUp,
   Files,
   AlertTriangle,
-  CheckCircle,
   Laptop,
   Coins
 } from 'lucide-react'

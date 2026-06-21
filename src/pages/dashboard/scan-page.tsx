@@ -54,7 +54,7 @@ export function ScanPage() {
 
     ws.onmessage = (event) => {
       try {
-        const message = json.loads ? json.loads(event.data) : JSON.parse(event.data)
+        const message = JSON.parse(event.data)
         const { type, device_id, payload } = message
         
         if (device_id !== selectedDevice) return

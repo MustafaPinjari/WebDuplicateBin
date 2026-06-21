@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { Laptop, RefreshCw, Key, AlertTriangle, CheckCircle } from 'lucide-react'
+import { Laptop, RefreshCw, Key, AlertTriangle } from 'lucide-react'
 import { apiClient } from '@/services/api'
 
 interface Device {
-  id: str
-  name: str
-  os: str
+  id: string
+  name: string
+  os: string
   is_active: boolean
-  last_seen: str
-  created_at: str
+  last_seen: string
+  created_at: string
 }
 
 export function SettingsPage() {
@@ -53,7 +53,7 @@ export function SettingsPage() {
     return () => clearTimeout(timer)
   }, [timeLeft])
 
-  const getOsIcon = (os: string) => {
+  const getOsIcon = (_os: string) => {
     return <Laptop className="h-5 w-5 text-gray-400" />
   }
 

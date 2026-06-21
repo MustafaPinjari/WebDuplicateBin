@@ -127,7 +127,7 @@ export function CLIInstallationSection() {
           
           {/* Terminal Command Boxes with Dracula Theme */}
           <div className="space-y-3 sm:space-y-4 max-w-4xl mx-auto">
-            {commands.map((cmd, index) => (
+            {commands.map((cmd) => (
               <div key={cmd.id} className="text-left">
                 {/* Command Label with Dracula comment color */}
                 <div className="text-xs sm:text-sm text-[#6272a4] mb-2 font-mono px-1 flex items-center">
