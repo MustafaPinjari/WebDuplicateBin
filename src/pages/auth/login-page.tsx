@@ -9,6 +9,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { useAuthStore } from '@/store/auth'
 import { ThemeToggle } from '@/components/common/theme-toggle'
 
+import { apiClient } from '@/services/api'
+
 const loginSchema = z.object({
   email: z.string().email('Please enter a valid email address'),
   password: z.string().min(6, 'Password must be at least 6 characters'),
@@ -18,6 +20,7 @@ type LoginForm = z.infer<typeof loginSchema>
 
 export function LoginPage() {
   const [isLoading, setIsLoading] = useState(false)
+  const [errorMsg, setErrorMsg] = useState('')
   const { login } = useAuthStore()
   const navigate = useNavigate()
   
@@ -31,17 +34,19 @@ export function LoginPage() {
 
   const onSubmit = async (data: LoginForm) => {
     setIsLoading(true)
-    
-    // Simulate API call - replace with actual authentication logic
-    setTimeout(() => {
-      login({
-        id: '1',
-        email: data.email,
-        name: 'Demo User',
-      })
+    setErrorMsg('')
+    try {
+      const res: any = await apiClient.login(data.email, data.password)
+      localStorage.setItem('duplicate-bin-token', res.access_token)
+      const user: any = await apiClient.request('/auth/me')
+      login(user)
       navigate('/dashboard')
+    } catch (err: any) {
+      console.error(err)
+      setErrorMsg('Incorrect email or password. Please try again.')
+    } finally {
       setIsLoading(false)
-    }, 1000)
+    }
   }
 
   return (
@@ -69,6 +74,11 @@ export function LoginPage() {
         </CardHeader>
         
         <CardContent>
+          {errorMsg && (
+            <div className="mb-4 p-3 bg-red-500/10 border border-red-500/20 text-red-400 text-sm rounded-lg">
+              {errorMsg}
+            </div>
+          )}
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <div className="space-y-2">
               <label htmlFor="email" className="text-sm font-medium text-white">

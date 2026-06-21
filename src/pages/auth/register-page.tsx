@@ -9,6 +9,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { useAuthStore } from '@/store/auth'
 import { ThemeToggle } from '@/components/common/theme-toggle'
 
+import { apiClient } from '@/services/api'
+
 const registerSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
   email: z.string().email('Please enter a valid email address'),
@@ -23,6 +25,7 @@ type RegisterForm = z.infer<typeof registerSchema>
 
 export function RegisterPage() {
   const [isLoading, setIsLoading] = useState(false)
+  const [errorMsg, setErrorMsg] = useState('')
   const { login } = useAuthStore()
   const navigate = useNavigate()
   
@@ -36,17 +39,25 @@ export function RegisterPage() {
 
   const onSubmit = async (data: RegisterForm) => {
     setIsLoading(true)
-    
-    // Simulate API call - replace with actual registration logic
-    setTimeout(() => {
-      login({
-        id: '1',
-        email: data.email,
-        name: data.name,
-      })
+    setErrorMsg('')
+    try {
+      // 1. Register user
+      await apiClient.register(data.name, data.email, data.password)
+      
+      // 2. Login immediately to get JWT
+      const res: any = await apiClient.login(data.email, data.password)
+      localStorage.setItem('duplicate-bin-token', res.access_token)
+      
+      // 3. Retrieve user object and set auth state
+      const user: any = await apiClient.request('/auth/me')
+      login(user)
       navigate('/dashboard')
+    } catch (err: any) {
+      console.error(err)
+      setErrorMsg(err.message || 'Registration failed. Email may already be in use.')
+    } finally {
       setIsLoading(false)
-    }, 1000)
+    }
   }
 
   return (
@@ -72,8 +83,12 @@ export function RegisterPage() {
             Get started with your free Duplicate Bin account
           </CardDescription>
         </CardHeader>
-        
         <CardContent>
+          {errorMsg && (
+            <div className="mb-4 p-3 bg-red-500/10 border border-red-500/20 text-red-400 text-sm rounded-lg">
+              {errorMsg}
+            </div>
+          )}
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <div className="space-y-2">
               <label htmlFor="name" className="text-sm font-medium text-white">

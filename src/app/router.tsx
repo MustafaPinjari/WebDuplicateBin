@@ -6,6 +6,8 @@ import { ForgotPasswordPage } from '../pages/auth/forgot-password-page'
 import { DownloadSuccessPage } from '../pages/download-success'
 import { AppLayout } from '../components/layout/app-layout'
 import { DashboardPage } from '../pages/dashboard/dashboard-page'
+import { SettingsPage } from '../pages/dashboard/settings-page'
+import { ScanPage } from '../pages/dashboard/scan-page'
 import { ProtectedRoute } from './protected-route'
 import { DocsLayout } from '../pages/docs/docs-layout'
 import { DocsIndexPage } from '../pages/docs/index'
@@ -186,7 +188,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'scan',
-        element: <div className="p-6">Scan page coming soon...</div>,
+        element: <ScanPage />,
       },
       {
         path: 'storage',
@@ -202,7 +204,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'settings',
-        element: <div className="p-6">Settings page coming soon...</div>,
+        element: <SettingsPage />,
       },
     ],
   },

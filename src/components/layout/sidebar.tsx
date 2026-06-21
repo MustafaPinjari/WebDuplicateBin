@@ -16,11 +16,6 @@ const navigation = [
     icon: LayoutDashboard,
   },
   {
-    name: 'Scan Files',
-    href: '/dashboard/scan',
-    icon: Search,
-  },
-  {
     name: 'Storage',
     href: '/dashboard/storage',
     icon: HardDrive,

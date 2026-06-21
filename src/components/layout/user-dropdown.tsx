@@ -1,4 +1,4 @@
-import { LogOut, Settings, User } from 'lucide-react'
+import { LogOut, Settings, User, LayoutDashboard } from 'lucide-react'
 import { Button } from '../ui/button'
 import {
   DropdownMenu,
@@ -48,7 +48,11 @@ export function UserDropdown() {
           </div>
         </div>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
+        <DropdownMenuItem onClick={() => navigate('/dashboard')}>
+          <LayoutDashboard className="mr-2 h-4 w-4" />
+          <span>Dashboard</span>
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => navigate('/dashboard/settings')}>
           <Settings className="mr-2 h-4 w-4" />
           <span>Settings</span>
         </DropdownMenuItem>
